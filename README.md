@@ -84,3 +84,6 @@ Reminder: `elementAPI.userData().getValue();` returns a string. It is highly rec
 
 #### Analytic Events
 
+Analytic events can be triggered using the API. This is helpful for tracking specific interactions or collecting the response to a specfic question. 
+
+To create and analytic event, use this: `elementAPI.createAnalyticEvent(key, value)`
