@@ -3,7 +3,7 @@ Gloo Element API
 
 ###Table of Contents
 
-1. **What is Element API?**
+1. [**What is Element API?**](https://github.com/jordanfray/gloo-elementAPI#what-is-element-api)
   1. Scope of Data
   2. User() Object
   3. UserData() Object
