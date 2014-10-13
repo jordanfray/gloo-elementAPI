@@ -5,15 +5,15 @@ Gloo Element API
 ###Table of Contents
 
 1. [**What is Element API?**](https://github.com/jordanfray/gloo-elementAPI#what-is-element-api)
-  1. Scope of Data
-  2. User() Object
-  3. UserData() Object
-  4. Analytic Events
+  1. [Scope of Data](https://github.com/jordanfray/gloo-elementAPI#scope-of-data)
+  2. [User() Object](https://github.com/jordanfray/gloo-elementAPI#user-object)
+  3. [UserData() Object](https://github.com/jordanfray/gloo-elementAPI#userdata-object)
+  4. [Analytic Events](https://github.com/jordanfray/gloo-elementAPI#analytic-events)
 2. [**Asset Bundles**](https://github.com/jordanfray/gloo-elementAPI#asset-bundles)
-  1. Creating an Asset Bundle
-  2. Uploading an Asset Bundle
-  3. Using an Asset Bundle
-  4. Gloo Hosted Assets
+  1. [Creating an Asset Bundle](https://github.com/jordanfray/gloo-elementAPI#creating-an-asset-bundle)
+  2. [Uploading an Asset Bundle](https://github.com/jordanfray/gloo-elementAPI#uploading-an-asset-bundle)
+  3. [Using an Asset Bundle](https://github.com/jordanfray/gloo-elementAPI#using-an-asset-bundle)
+  4. [Gloo Hosted Assets](https://github.com/jordanfray/gloo-elementAPI#gloo-hosted-assets)
 3. **Gloo Sandbox**
   1. Creating and EAPI element
   2. Prerequisites 
