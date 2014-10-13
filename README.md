@@ -4,11 +4,10 @@ Gloo Element API
 ###Table of Contents
 
 1. **What is Element API?**
-  1. EAPI Defined
-  2. Scope of Data
-  3. User Object
-  4. User Data Object
-  5. Analytic Events
+  1. Scope of Data
+  2. User Object
+  3. User Data Object
+  4. Analytic Events
 2. **Asset Bundles**
   1. Creating an Asset Bundle
   2. Uploading an Asset Bundle
@@ -23,7 +22,6 @@ Gloo Element API
 
 ## What is Element API?
 
-#### EAPI Defined
 Element API (EAPI) is an *Element Type* and and *API* that allows for rich and engaging interactive content to be developed and deployed within the gloo system. 
 
 **EAPI The API**: The API allows the content creator to access data in the `UserData()` and `User()` objects. 
@@ -87,3 +85,55 @@ Reminder: `elementAPI.userData().getValue();` returns a string. It is highly rec
 Analytic events can be triggered using the API. This is helpful for tracking specific interactions or collecting the response to a specfic question. 
 
 To create and analytic event, use this: `elementAPI.createAnalyticEvent(key, value)`
+
+===============
+
+## Asset Bundles
+
+**Asset Bundles** are the mechanism in gloo for storing files externally for use in EAPI elements. These "bundles" are zipped folders with a series of organized sub folders containing things like CSS, Javascript, jQuery libraries, images, videos, fonts, etc.
+
+
+#### Creating an Asset Bundle
+Asset Bundles can be created by simply organizing your files into a *root* folder.  Here is a sample folder structure:
+
+- myAssets
+  - css
+    - style.css
+  - images
+    - image1.jpg
+    - image2.png
+    - background.jpg
+  - javascript
+    - jQuery_2.0.3.js
+    - highcharts.js
+
+**File Requirements**
+
+File names cannot include spaces. User underscores or camelCase instead of spaces. Files names must include file extensions (.jpg, .png, .css, .js, etc).
+
+#### Uploading an Asset Bundle
+To upload an asset bundle, zip or compress your root folder containing your assets. *Make sure the folder name has no spaces in it and it has a extension of .zip*. Once your zipped folder is ready, go to the [Gloo portal](http://gloo.us/media) and click on **Content Tab**. From this page, click **Media Manager** in the left navigation pane. Click **Choose Files** in the section titled *Upload Asset Bundle*.
+
+**Important** Uploading an asset bundle with the same name as an existing bundle will **overwrite** the original bundle. 
+
+#### Using an Asset Bundle
+Uploading an asset bundle adds the folder and files to the Gloo Amazon S3 account. You can access your uploaded files with a unique URL. First, you'll need to find your Organization ID. In the Gloo Portal, click on your name in the top right corner to make sure you are opporating as the org you uploaded the assets for. Next, click [**My Organization**](http://gloo.us/organizations) in your name's sub menu.  Then click **Edit Organization**. Your organization's ID can be found in the URL on this page. 
+
+`"gloo_assets_orgId/rootFolderName/subFolderName/fileName.extension"`
+
+Example: `"gloo_assets_321/myAssets/css/style.css"`
+
+#### Gloo Hosted Assets
+Asset Bundles can be used in other organizations other than the on they were uploaded to. Gloo has hosted some frequently used assets for the Gloo community to use as desired. 
+
+```
+jQuery
+<script type="text/javascript" src="gloo_assets_321/gloo_style/jQuery_2.0.3.js"></script>
+
+gloo bootstrap.css 
+<link rel="stylesheet" type="text/css" href="gloo_assets_321/gloo_style/stylesheets/style.css">
+```
+
+
+
+
