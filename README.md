@@ -46,17 +46,16 @@ The `user()` object holds information about the user:
   - avatar URL
 
 ```javascript
-  $(document).ready(function() {
-    var user = elementAPI.user();
-    var userId = user.data.id;
-    var firstName = user.data.first_name;
-    var lastName = user.data.last_name;
-    var hasPartner = user.data.has_partner;
-    var gender = user.gender();
-    var partnerRelationship = user.data.partner_relationship_id;
-    var avatarURL = user.avatar();
-  };
-
+$(document).ready(function() {
+	var user = elementAPI.user();
+	var userId = user.data.id;
+	var firstName = user.data.first_name;
+	var lastName = user.data.last_name;
+	var hasPartner = user.data.has_partner;
+	var gender = user.gender();
+	var partnerRelationship = user.data.partner_relationship_id;
+	var avatarURL = user.avatar();
+};
 ```
 *There is also a `partner()` object that holds the same data for user's partner.*
 
