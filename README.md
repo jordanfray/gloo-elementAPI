@@ -117,7 +117,7 @@ To upload an asset bundle, zip or compress your root folder containing your asse
 **Important** Uploading an asset bundle with the same name as an existing bundle will **overwrite** the original bundle. 
 
 #### Using an Asset Bundle
-Uploading an asset bundle adds the folder and files to the Gloo Amazon S3 account. You can access your uploaded files with a unique URL. First, you'll need to find your Organization ID. In the Gloo Portal, click on your name in the top right corner to make sure you are opporating as the org you uploaded the assets for. Next, click [**My Organization**](http://gloo.us/organizations) in your name's sub menu.  Then click **Edit Organization**. Your organization's ID can be found in the URL on this page. 
+Uploading an asset bundle adds the folder and files to the Gloo Amazon S3 account. You can access your uploaded files with a unique URL. First, you'll need to find your Organization ID. In the Gloo Portal, click on your name in the top right corner to make sure you are operating as the org you uploaded the assets for. Next, click [**My Organization**](http://gloo.us/organizations) in your name's sub menu.  Then click **Edit Organization**. Your organization's ID can be found in the URL on this page. 
 
 `"gloo_assets_orgId/rootFolderName/subFolderName/fileName.extension"`
 
