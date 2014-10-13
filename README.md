@@ -1,7 +1,7 @@
 Gloo Element API
 ===============
 
-**[Check out the wiki for more information](https://github.com/jordanfray/gloo-elementAPI/wiki)**
+**[Check out the wiki for more information](https://github.com/jordanfray/gloo-elementAPI/wiki/ElementAPI-Wiki)**
 ###Table of Contents
 
 1. [**What is Element API?**](https://github.com/jordanfray/gloo-elementAPI#what-is-element-api)
