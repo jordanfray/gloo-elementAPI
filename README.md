@@ -8,7 +8,7 @@ Gloo Element API
   2. User() Object
   3. UserData() Object
   4. Analytic Events
-2. **Asset Bundles**
+2. [**Asset Bundles**](https://github.com/jordanfray/gloo-elementAPI#asset-bundles)
   1. Creating an Asset Bundle
   2. Uploading an Asset Bundle
   3. Using an Asset Bundle
