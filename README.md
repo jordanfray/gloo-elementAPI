@@ -3,12 +3,12 @@ Gloo Element API
 
 ###Table of Contents
 
-1. **What is Element API?**
+1. [**What is Element API?**](https://github.com/jordanfray/gloo-elementAPI#what-is-element-api)
   1. Scope of Data
   2. User() Object
   3. UserData() Object
   4. Analytic Events
-2. **Asset Bundles**
+2. [**Asset Bundles**](https://github.com/jordanfray/gloo-elementAPI#asset-bundles)
   1. Creating an Asset Bundle
   2. Uploading an Asset Bundle
   3. Using an Asset Bundle
@@ -71,7 +71,7 @@ $(document).ready(function() {
 	db.setValue('stringKey', string);
 	db.setValue('arrayKey', JSON.stringify(array));
 
-	// Get "value" from the data bag
+	// Get from the data bag
 	var string = db.getValue('stringKey');
 	var array = JSON.parse(db.getValue('arrayKey'));
 });
