@@ -71,7 +71,7 @@ $(document).ready(function() {
 	db.setValue('stringKey', string);
 	db.setValue('arrayKey', JSON.stringify(array));
 
-	// Get "value" from the data bag
+	// Get from the data bag
 	var string = db.getValue('stringKey');
 	var array = JSON.parse(db.getValue('arrayKey'));
 });
