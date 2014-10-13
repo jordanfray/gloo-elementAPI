@@ -5,8 +5,8 @@ Gloo Element API
 
 1. **What is Element API?**
   1. Scope of Data
-  2. User Object
-  3. User Data Object
+  2. User() Object
+  3. UserData() Object
   4. Analytic Events
 2. **Asset Bundles**
   1. Creating an Asset Bundle
@@ -33,7 +33,7 @@ Data in the `userData()` object is scoped to the user and the applet. In other w
 
 The `user()` object is read only. 
 
-#### User Object
+#### User() Object
 The `user()` object holds information about the user:
   - user id
   - first name
@@ -57,7 +57,7 @@ $(document).ready(function() {
 ```
 *There is also a `partner()` object that holds the same data for user's partner.*
 
-#### User Data Object
+#### UserData() Object
 The `userData()` object holds data that is passed to it from an element. This data is unique to the user and scoped to the applet.
 
 ```javascript
