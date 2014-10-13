@@ -31,7 +31,9 @@ Element API (EAPI) is an *Element Type* and and *API* that allows for rich and e
 **EAPI The Element Type**: The EAPI Element is an open sandbox for creating content using HTML, CSS, Javascript, and jQuery.
 
 #### Scope of Data
-Data in the `userData()` object is scoped to the applet. In other words, you read and write data to the Data Bag between elements that are in the same applet but you can't access data in another applet. The `user()` object is read only. 
+Data in the `userData()` object is scoped to the user and the applet. In other words, you can read and write data to the Data Bag between elements that are in the same applet but you can't access data in another applet. 
+
+The `user()` object is read only. 
 
 #### User Object
 The `user()` object holds information about the user:
@@ -64,18 +66,24 @@ The `user()` object holds information about the user:
 The `userData()` object holds data that is passed to it from an element. This data is unique to the user and scoped to the applet.
 
 ```javascript
-var value = "String Value";
+$(document).ready(function() {
+	var db = elementAPI.userData();
 
-// Save "value" in the data bag
-elementAPI.userData().setValue('key', value);
+	var string = "String Value";
+	var array = [3, "string", ["item1", "item2"], 200];
+	
+	// Save to the data bag
+	db.setValue('stringKey', string);
+	db.setValue('arrayKey', JSON.stringify(array));
 
-// Get "value" from the data bag
-var value = elementAPI.userData().getValue('key');
-
+	// Get "value" from the data bag
+	var string = db.getValue('stringKey');
+	var array = JSON.parse(db.getValue('arrayKey'));
+});
 ```
 *There is also a `partnerData()` object that holds the same data for user's partner.*
 
-Reminder: `elementAPI.userData().getValue();` returns a string It's highly recommended that your `JSON.stringify`or `toString()` everything that you send to the Data Bag.
+Reminder: `elementAPI.userData().getValue();` returns a string. It is highly recommended that your `JSON.stringify`or `toString()` on everything that you send to the Data Bag.
 
 #### Analytic Events
 
