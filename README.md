@@ -81,7 +81,7 @@ $(document).ready(function() {
 ```
 *There is also a `partnerData()` object that holds the same data for user's partner.*
 
-Reminder: `elementAPI.userData().getValue();` returns a string. It is highly recommended that your `JSON.stringify`or `toString()` on everything that you send to the Data Bag.
+Reminder: `elementAPI.userData().getValue();` returns a string. It is highly recommended that you `JSON.stringify`or `toString()` everything that you send to the Data Bag.
 
 #### Analytic Events
 
