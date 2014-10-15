@@ -173,7 +173,7 @@ There are a few things that must be included in your element:
   4. Any other jQuery libraries you want to use
 
 
-### Basic Setup
+#### Basic Setup
 
 Here is a sample basic setup for a new element.
 
