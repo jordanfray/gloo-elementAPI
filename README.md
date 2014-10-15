@@ -56,7 +56,7 @@ $(document).ready(function() {
 	var avatarURL = user.avatar();
 };
 ```
-Learn how you can use the `getUserObject()` helper function [HERE](https://github.com/jordanfray/gloo-elementAPI/wiki/helperFunctions.js)
+Learn how you can use the `getUserObject()` helper function [HERE.](https://github.com/jordanfray/gloo-elementAPI/wiki/helperFunctions.js#getuserobject)
 
 *There is also a `partner()` object that holds the same data for user's partner.*
 
