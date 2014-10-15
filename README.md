@@ -129,14 +129,23 @@ Uploading an asset bundle adds the folder and files to the Gloo Amazon S3 accoun
 Example: `"gloo_assets_321/myAssets/css/style.css"`
 
 #### Gloo Hosted Assets
-Asset Bundles can be used in other organizations other than the on they were uploaded to. Gloo has hosted some frequently used assets for the Gloo community to use as desired. 
+Asset Bundles can be used in other organizations other than the one they were uploaded to. Gloo has hosted some frequently used assets for the Gloo community to use as desired. 
 
-```
+```javascript
 jQuery
-<script type="text/javascript" src="gloo_assets_321/gloo_style/jQuery_2.0.3.js"></script>
+<script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/jQuery_1.11.1.js"></script>
+
+Gloo helperFunctions.js
+<script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/helperFunctions.js"></script>
+
+HighCharts.js
+<script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/highcharts.js"></script>
 
 gloo bootstrap.css 
-<link rel="stylesheet" type="text/css" href="gloo_assets_321/gloo_style/stylesheets/style.css">
+<link rel="stylesheet" type="text/css" href="gloo_assets_321/gloo_assets/stylesheets/style.css">
+
+normalize.css
+<link rel="stylesheet" type="text/css" href="gloo_assets_321/gloo_assets/stylesheets/normalize.css">
 ```
 
 
