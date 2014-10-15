@@ -14,7 +14,7 @@ Gloo Element API
   2. [Uploading an Asset Bundle](https://github.com/jordanfray/gloo-elementAPI#uploading-an-asset-bundle)
   3. [Using an Asset Bundle](https://github.com/jordanfray/gloo-elementAPI#using-an-asset-bundle)
   4. [Gloo Hosted Assets](https://github.com/jordanfray/gloo-elementAPI#gloo-hosted-assets)
-3. [Gloo Sandbox] (https://github.com/jordanfray/gloo-elementAPI#gloo-sandbox)
+3. [**Gloo Sandbox**] (https://github.com/jordanfray/gloo-elementAPI#gloo-sandbox)
   1. [Creating an EAPI element](https://github.com/jordanfray/gloo-elementAPI#creating-an-eapi-element)
   2. [Prerequisites](https://github.com/jordanfray/gloo-elementAPI#prerequisites)
   3. [Basic Setup](https://github.com/jordanfray/gloo-elementAPI#basic-setup)
