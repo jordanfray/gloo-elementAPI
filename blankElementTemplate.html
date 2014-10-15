@@ -1,19 +1,24 @@
 <head>
-    <script type="text/javascript" src="gloo_assets_321/gloo_style/javascript/jQuery_2.0.3.js"></script>
-    <link href="gloo_assets_321/gloo_style/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/jQuery_1.11.1.js"></script>
+    <link href="gloo_assets_321/gloo_assets/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+    
     <div class="content-container">
-        <!-- CONTENT GOES HERE IF YOU WANT MARGIN -->
+
     </div>
-     
+    
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/helperFunctions.js"></script>
+    
     <script>
         $(document).ready(function() {
-            var db = elementAPI.userData();
-            var user = elementAPI.user();
-
-
+            var user = getUserObject();
+            var userData = elementAPI.userData();
+            
+            
         }); 
+        
+        // For documentation on the helperFunctions, visit https://github.com/jordanfray/gloo-elementAPI/wiki/helperFunctions.js
     </script>
 </body>
