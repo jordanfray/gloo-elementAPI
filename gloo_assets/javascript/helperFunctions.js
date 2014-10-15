@@ -12,3 +12,4 @@ function getUserObject() {
 
 	return user;
 }
+
