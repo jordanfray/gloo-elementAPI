@@ -17,12 +17,3 @@ function getUserObject() {
 
 	return user;
 }
-
-// Select an ID, Class, or html element that you want to get the Id for when clicked
-function getIdOnClick(clicked) {
-    $(clicked).click(function() {
-        var id= $(this).attr('id');
-    });
-    
-    return id;
-}
