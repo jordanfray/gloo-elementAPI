@@ -15,9 +15,9 @@ Gloo Element API
   3. [Using an Asset Bundle](https://github.com/jordanfray/gloo-elementAPI#using-an-asset-bundle)
   4. [Gloo Hosted Assets](https://github.com/jordanfray/gloo-elementAPI#gloo-hosted-assets)
 3. [Gloo Sandbox] (https://github.com/jordanfray/gloo-elementAPI#gloo-sandbox)
-  1. [Creating an EAPI element](https://github.com/jordanfray/gloo-elementAPI/blob/master/README.md#creating-an-eapi-element)
-  2. Prerequisites 
-  3. Basic Setup
+  1. [Creating an EAPI element](https://github.com/jordanfray/gloo-elementAPI#gloo-sandbox#creating-an-eapi-element)
+  2. [Prerequisites](https://github.com/jordanfray/gloo-elementAPI#prerequisites)
+  3. [Basic Setup](https://github.com/jordanfray/gloo-elementAPI#basic-setup)
 
 ===============
 
@@ -165,6 +165,41 @@ normalize.css
 
 ![alt text](https://d1yyrsno1mfwjj.cloudfront.net/uploads/media/image/37368/open-uri20141015-26494-1jw30b1 "Click "Create Element")
 
+#### Prerequisites
+There are a few things that must be included in your element:
+  1. jQuery
+  2. style.css (if you want to use the gloo bootstrap)
+  3. helperFunctions.js (if you want to use these functions)
+  4. Any other jQuery libraries you want to use
 
 
+### Basic Setup
 
+Here is a sample basic setup for a new element.
+
+```html
+<head>
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/jQuery_1.11.1.js"></script>
+    <link href="gloo_assets_321/gloo_assets/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    
+    <div class="content-container">
+	<!-- Content with margin goes here -->
+    </div>
+    
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/helperFunctions.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            var user = getUserObject();
+            var userData = elementAPI.userData();
+            
+            // Your javascript/jQuery goes here
+        }); 
+        
+        // For documentation on the helperFunctions, visit https://github.com/jordanfray/gloo-elementAPI/wiki/helperFunctions.js
+    </script>
+</body>
+```
