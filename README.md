@@ -58,7 +58,7 @@ $(document).ready(function() {
 ```
 Learn how you can use the `getUserObject()` helper function [HERE.](https://github.com/jordanfray/gloo-elementAPI/wiki/helperFunctions.js#getuserobject)
 
-*There is also a `partner()` object that holds the same data for user's partner.*
+*There is also a `partner()` object that holds the same data for the user's partner.*
 
 #### UserData() Object
 The `userData()` object holds data that is passed to it from an element. This data is unique to the user and scoped to the applet.
@@ -79,7 +79,7 @@ $(document).ready(function() {
 	var array = JSON.parse(db.getValue('arrayKey'));
 });
 ```
-*There is also a `partnerData()` object that holds the same data for user's partner.*
+*There is also a `partnerData()` object that holds the same data for the user's partner.*
 
 Reminder: `elementAPI.userData().getValue();` returns a string. It is highly recommended that you `JSON.stringify`or `toString()` everything that you send to the Data Bag.
 
