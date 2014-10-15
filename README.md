@@ -15,7 +15,7 @@ Gloo Element API
   3. [Using an Asset Bundle](https://github.com/jordanfray/gloo-elementAPI#using-an-asset-bundle)
   4. [Gloo Hosted Assets](https://github.com/jordanfray/gloo-elementAPI#gloo-hosted-assets)
 3. [Gloo Sandbox] (https://github.com/jordanfray/gloo-elementAPI#gloo-sandbox)
-  1. Creating and EAPI element
+  1. Creating an EAPI element
   2. Prerequisites 
   3. Basic Setup
 
@@ -149,6 +149,8 @@ normalize.css
 ```
 
 ## Gloo Sandbox
+
+#### Creating an EAPI element
 
 **Once you have created an applet, click "Create Element".**
 
