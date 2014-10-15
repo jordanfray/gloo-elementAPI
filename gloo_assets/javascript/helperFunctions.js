@@ -1,3 +1,8 @@
+/*  
+	File Updated: 10/15/2014
+	Documentation: https://github.com/jordanfray/gloo-elementAPI/wiki/helperFunctions.js
+*/
+
 // This fuction sets up the userObject with easy access to all of it's data
 function getUserObject() {
 	var user = {
