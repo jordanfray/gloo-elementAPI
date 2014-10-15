@@ -112,7 +112,7 @@ Asset Bundles can be created by simply organizing your files into a *root* folde
 
 **File Requirements**
 
-File names cannot include spaces. User underscores or camelCase instead of spaces. Files names must include file extensions (.jpg, .png, .css, .js, etc).
+File names cannot include spaces. Use underscores or camelCase instead of spaces. Files names must include file extensions (.jpg, .png, .css, .js, etc).
 
 #### Uploading an Asset Bundle
 To upload an asset bundle, zip or compress your root folder containing your assets. *Make sure the folder name has no spaces in it and it has a extension of .zip*. Once your zipped folder is ready, go to the [Gloo portal](http://gloo.us/media) and click on **Content Tab**. From this page, click **Media Manager** in the left navigation pane. Click **Choose Files** in the section titled *Upload Asset Bundle*.
