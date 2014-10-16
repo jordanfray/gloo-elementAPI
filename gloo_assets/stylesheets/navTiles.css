@@ -1,0 +1,93 @@
+.tile {
+	background-color: #6B6926;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	top: 0px;
+	z-index: 1;
+}
+
+.tile img {
+	min-width: 100vw;
+	height: 100vh;
+	opacity: .55;
+	display: block;
+}
+
+.tile .title-block {
+	position: absolute;
+	z-index: 2;
+	top: 20vw;
+	left: 0px;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	margin-top:0px;
+	width: 100%;
+	text-align: center;
+	color: white;
+}
+
+.title-block .action {
+	display: table;
+	border: 2px solid white;
+	text-transform: uppercase;
+	border-radius: 8px;
+	font-size: 5vw;
+	padding: 4vw 10vw;
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-family: 'Montserrat',sans-serif;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top:0px;
+	margin-bottom: 20px;
+	transition: all .3s linear;  
+}
+
+.selected {
+    background-color: #CD0000;
+    border: 2px solid #CD0000;
+    transition: all .3s linear;
+}
+
+.title-block .title {
+	font-size: 6vw;
+	font-family: 'Libre Baskerville';
+	font-weight: bold;
+	letter-spacing: 0px;
+	line-height: 8vw;
+	margin-top:0px;
+	margin-bottom: 20px;
+}
+
+.title-block .rule {
+	margin-left: 30vw !important;
+	margin-right: 30vw !important;
+	width: auto;
+	border-bottom: 1px solid white;
+	margin-top:0px;
+	margin-bottom: 20px;
+}
+
+.title-block .byline {
+	font-size: 3vw;
+	font-weight: normal;
+	letter-spacing: 1px;
+	display: block;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top:0px;
+	font-family: 'Montserrat',sans-serif;
+}
+
+.title-block .preview {
+	font-family: 'Libre Baskerville';
+	font-size: 4vw;
+	font-weight: normal;
+	letter-spacing: 1px;
+	display: block;
+	text-align: left;
+	margin-top: 5vw;
+	margin-left: 10vw;
+	margin-right: 10vw;
+}

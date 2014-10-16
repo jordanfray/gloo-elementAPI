@@ -1,0 +1,119 @@
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="gloo_assets_93/reveal4me/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="gloo_assets_93/reveal4me/css/style.css">
+    <link rel="stylesheet" type="text/css" href="gloo_assets_93/reveal4me/css/navTiles.css">
+    <link rel="stylesheet" type="text/css" href="gloo_assets_93/reveal4me/css/fullPage.css">
+    
+    <!-- For help, visit https://github.com/alvarotrigo/fullPage.js#fullpagejs -->
+    <script type="text/javascript" src="gloo_assets_93/reveal4me/javascript/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="gloo_assets_93/reveal4me/javascript/slimscroll.min.js"></script>
+    <script type="text/javascript" src="gloo_assets_93/reveal4me/javascript/fullPage.min.js"></script>
+    <script src="gloo_assets_93/reveal4me/javascript/easings.min.js"></script>
+</head>
+
+<body>
+    <div id="fullpage"> <!-- This is part of the fullPage.js plug-in -->
+    	<div class="section"> <!-- This is part of the fullPage.js plug-in -->
+            <div class="tile">
+        		<img src="gloo_assets_93/reveal4me/images/forest1.jpg">
+        		
+        		<div class="title-block">
+        			<div id="add-1" class="action">Add</div>
+        			<div class="title">Gaining Perspective</div>
+        			<div class="rule"></div>
+        			<div class="byline">Story</div>
+        			<div class="preview">
+        				We all experience difficulty on our journey, and at times it can be difficult to remember that God 
+                        is able--in all circumstances--to meet us there and endure with confidence solidly placed in God. 
+                        Even if we know this in our heads, it can be hard believing and living accordingly.
+        			</div> <!-- Max characters 300 -->
+        		</div>
+        	</div>
+        </div> <!-- This is part of the fullPage.js plug-in -->
+        
+        <div class="section"> <!-- This is part of the fullPage.js plug-in -->
+            <div class="tile">
+            	<img src="gloo_assets_93/reveal4me/images/forest2.jpg">
+        		
+        		<div class="title-block">
+        			<div id="add-2" class="action">Add</div>
+        			<div class="title">Forgiving Those Who <br>Love You Most</div>
+        			<div class="rule"></div>
+        			<div class="byline">Story</div>
+        			<div class="preview">
+        				Are you haunted by something that happened in your past? Whether someone wronged you or you made a 
+                        decision you regret, Dr. Phil says that forgiveness is what you do for yourself, not for other people. 
+                        When you forgive, it doesn't mean that you approve of what's happened. Rather, it means that you're 
+                        giving yourself permission to move on with your life. 
+        			</div> <!-- Max characters 300 -->
+        		</div>
+        	</div>
+        </div><!-- This is part of the fullPage.js plug-in -->
+        
+        <div class="section"> <!-- This is part of the fullPage.js plug-in -->
+            <div class="tile">
+                <img src="gloo_assets_93/reveal4me/images/forest3.jpg">
+        		
+        		<div class="title-block">
+        			<div id="add-3" class="action">Add</div>
+        			<div class="title">Life's Challenges'</div>
+        			<div class="rule"></div>
+        			<div class="byline">Story</div>
+        			<div class="preview">
+        				If left unattended, life's challenges (both past and present) can actually hold us captive and 
+                        inhibit us from living freely. It’s usually not fun to face or revisit these challenges, but the 
+                        goal of freedom makes it well worth the effort of taking an honest look at pain.
+        			</div> <!-- Max characters 300 -->
+        		</div>
+        	</div>
+        </div> <!-- This is part of the fullPage.js plug-in -->
+    </div> <!-- This is part of the fullPage.js plug-in -->
+    
+    <script>
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                scrollingSpeed: 0,
+                css3: true
+            });
+            
+            var selectedSlides = JSON.parse(elementAPI.userData().getValue('selectedSlides'));
+            
+            if ( selectedSlides === undefined || selectedSlides === null) {
+                selectedSlides = [];
+            };
+            
+            for ( var i=0; i < selectedSlides.length; i++ ) {
+                $("#" + selectedSlides[i]).addClass('selected');
+                $("#" + selectedSlides[i]).text("Remove");
+            };
+            
+            //4:29:27 PM > set data bag  {"update_partner":"false","name":"topic61255clicked","value":"true"}
+            var applets = {
+               "add-1" : "166392", //"Gaining Perspective"
+               "add-2" : "166399", // "Forgiving Those Who Love You Most"
+               "add-3" : "166409" // "Life's Challenges"
+            }
+                
+            $('.action').click(function() {
+                var id = event.target.id;
+                if ($("#" + id).hasClass('selected') === true ) {
+                    $("#" + id).removeClass('selected');
+                    $("#" + id).text("Add");
+                    selectedSlides.splice(selectedSlides.indexOf(id),1);
+                    var thisApplet = "applet" + id.split("-")[1];
+                    
+                    elementAPI.userData().setValue("topic" + applets[id] + "clicked", "false");
+                    elementAPI.userData().setValue("selectedSlides",JSON.stringify(selectedSlides));
+                } else {
+                    $("#" + id).addClass('selected');
+                    $("#" + id).text("Remove");
+                    selectedSlides.push(id);
+                    var thisApplet = "applet" + id.split("-")[1];
+                    elementAPI.userData().setValue("topic" + applets[id] + "clicked", "true");
+                    elementAPI.userData().setValue("selectedSlides",JSON.stringify(selectedSlides));
+                }
+            });
+        });
+    </script>
+</body>
