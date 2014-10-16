@@ -1,0 +1,157 @@
+<head>
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/jQuery_1.11.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="gloo_assets_321/gloo_assets/stylesheets/feedback.css">
+</head>
+
+<body>
+    <div id="feedback">
+        <div class="content-container">
+            <p>Thank you for taking time to give us your feedback.  Your feedback is anonymous.</p>
+        </div>
+        
+        <div class="question-container">
+            
+            <div class="question-likert-5">
+                <p><strong>1.</strong> <span id="questionText1">Overall, this experience was helpful for my growth.</span></p>
+    
+                <input type="radio" name="question-1" id="question-1-1">
+                <label for="question-1-1">1</label>
+                
+                <input type="radio" name="question-1" id="question-1-2">
+                <label for="question-1-2">2</label>
+                
+                <input type="radio" name="question-1" id="question-1-3">
+                <label for="question-1-3">3</label>
+    
+                <input type="radio" name="question-1" id="question-1-4">
+                <label for="question-1-4">4</label>
+    
+                <input type="radio" name="question-1" id="question-1-5">
+                <label for="question-1-5">5</label>
+    
+                <div class="left-anchor">Disagree</div>
+                <div class="right-anchor">Agree</div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <div class="question-likert-5">
+                <p><strong>2.</strong> <span id="questionText2">The time I spent was worth the investment.</span></p>
+    
+                <input type="radio" name="question-2" id="question-2-1">
+                <label for="question-2-1">1</label>
+                
+                <input type="radio" name="question-2" id="question-2-2">
+                <label for="question-2-2">2</label>
+                
+                <input type="radio" name="question-2" id="question-2-3">
+                <label for="question-2-3">3</label>
+    
+                <input type="radio" name="question-2" id="question-2-4">
+                <label for="question-2-4">4</label>
+    
+                <input type="radio" name="question-2" id="question-2-5">
+                <label for="question-2-5">5</label>
+    
+                <div class="left-anchor">Disagree</div>
+                <div class="right-anchor">Agree</div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <div class="question-likert-5">
+                <p><strong>3.</strong> <span id="questionText3">This experience and content was easy to follow.</span></p>
+    
+                <input type="radio" name="question-3" id="question-3-1">
+                <label for="question-3-1">1</label>
+                
+                <input type="radio" name="question-3" id="question-3-2">
+                <label for="question-3-2">2</label>
+                
+                <input type="radio" name="question-3" id="question-3-3">
+                <label for="question-3-3">3</label>
+    
+                <input type="radio" name="question-3" id="question-3-4">
+                <label for="question-3-4">4</label>
+    
+                <input type="radio" name="question-3" id="question-3-5">
+                <label for="question-3-5">5</label>
+    
+                <div class="left-anchor">Disagree</div>
+                <div class="right-anchor">Agree</div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <div class="question-likert-5">
+                <p><strong>4.</strong> <span id="questionText4">Interactions in a group or shared "space" were helpful in this growth experience.</span></p>
+    
+                <input type="radio" name="question-4" id="question-4-1">
+                <label for="question-4-1">1</label>
+                
+                <input type="radio" name="question-4" id="question-4-2">
+                <label for="question-4-2">2</label>
+                
+                <input type="radio" name="question-4" id="question-4-3">
+                <label for="question-4-3">3</label>
+    
+                <input type="radio" name="question-4" id="question-4-4">
+                <label for="question-4-4">4</label>
+    
+                <input type="radio" name="question-4" id="question-4-5">
+                <label for="question-4-5">5</label>
+    
+                <div class="left-anchor">Disagree</div>
+                <div class="right-anchor">Agree</div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <div class="question-likert-5">
+                <p><strong>5.</strong> <span id="questionText5">I would recommend this growth experience to a friend.</span></p>
+    
+                <input type="radio" name="question-5" id="question-5-1">
+                <label for="question-5-1">1</label>
+                
+                <input type="radio" name="question-5" id="question-5-2">
+                <label for="question-5-2">2</label>
+                
+                <input type="radio" name="question-5" id="question-5-3">
+                <label for="question-5-3">3</label>
+    
+                <input type="radio" name="question-5" id="question-5-4">
+                <label for="question-5-4">4</label>
+    
+                <input type="radio" name="question-5" id="question-5-5">
+                <label for="question-5-5">5</label>
+    
+                <div class="left-anchor">Disagree</div>
+                <div class="right-anchor">Agree</div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <p style="border-bottom:none; margin-bottom:0"><strong>6.</strong> We want to hear from you... other thoughts or ideas or feedback?</span></p>
+            <textarea id="feedback-text" rows="6"></textarea>
+            <div class="submit-button">Submit</div>
+        </div>
+    </div>
+    
+    <div id="thanks">
+        <div class="content-container">
+            <p style="text-align: center">Thank you!<br>Every bit of feedback helps<br>us make our content better.</p>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {                        
+            $('input[type=radio]').click(function() {
+                var id= $(this).attr('id').split('-');
+                var key = $("#questionText" + id[1]).text();
+                var value = parseInt(id[2]);
+                elementAPI.createAnalyticEvent(key, value);
+            });
+            
+            $(".submit-button").click(function() {
+                elementAPI.createAnalyticEvent("We want to hear from you... other thoughts or ideas or feedback?",$("#feedback-text").val());
+                $("#feedback").fadeOut(500);
+                $("#thanks").delay(500).fadeIn(500);
+            });
+        }); 
+    </script>
+</body>
