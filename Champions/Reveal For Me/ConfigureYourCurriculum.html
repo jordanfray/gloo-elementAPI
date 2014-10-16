@@ -117,3 +117,75 @@
         });
     </script>
 </body>
+
+<!-- Program controller part of code -->
+
+var topicKeyTemplate = "topic{0}clickeddatabag";
+var maxTopics = 100;
+
+function debug(applets, ids, programData) {
+    logger("------- program data -------");
+    logger(JSON.stringify(programData, null, 4));
+  
+    logger("----- selected app ids -----");
+    logger(JSON.stringify(ids, null, 4));
+  
+    logger("------- applet data --------");
+    for (var i = applets.length - 1; i >= 0; i--) {
+        var applet = applets[i];
+        logger(JSON.stringify(applet, null, 4));
+    }
+}
+
+var arrayContainsValue = function(array, value) {
+    for (var i = 0; i < array.length; i++) {    
+      if (array[i] == value) return true;
+    }
+    return false;
+};
+
+/* 
+Electives
+Gaining Perspective                 9115    166392
+Forgiving Those Who Love You Most   9116    166399
+Life's Challenges                   9117    166409
+
+Default Applets
+Configure Your Curriculum           9111    166053
+Life's Challenges                   9120    166730
+Gaining Perspective                 9121    166731
+Forgiving Those Who Love You Most   9122    166732
+Portrait                            9123    166752
+*/
+
+var topics = {
+    "166409" : "Life's Challenges",
+    "166399" : "Forgiving Those Who Love You Most",
+    "166392" : "Gaining Perspective"
+};
+
+(
+function (applets, programData) {
+    var ids = [166752,166730,166731,166732,166053];
+
+    for(var j = 0; j < applets.length; ++j) {
+        
+        var applet = applets[j];
+        
+        if (applet.id == 166053) {
+            for(var appletID in topics) {
+                var topic = applet.data[topicKeyTemplate.replace("{0}", appletID)];
+                if (topic == "true" || topic == true) {
+                    var id = new Number(appletID);
+                    ids.push(id.valueOf());
+                }
+            }
+            break;
+        }
+    }
+    
+    debug(applets, ids, programData);
+    
+    return ids;
+}
+)
