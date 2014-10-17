@@ -1,5 +1,5 @@
 /*  
-	File Updated: 10/15/2014
+	File Updated: 10/17/2014
 	Documentation: https://github.com/jordanfray/gloo-elementAPI/wiki/helperFunctions.js
 */
 
@@ -16,4 +16,18 @@ function getUserObject() {
 	}
 
 	return user;
+}
+
+// Sort the array Highest to Lowest
+function sortArrayDescending(array,column) {
+    array.sort(function(a,b) {
+	    return b[column]-a[column];
+	});
+}
+
+// Sort the array Lowest to Highest
+function sortArrayAscending(array,column) {
+	array.sort(function(a,b) {
+	    return a[column]-b[column];
+	});
 }
