@@ -89,6 +89,19 @@ Analytic events can be triggered using the API. This is helpful for tracking spe
 
 To create and analytic event, use this: `elementAPI.createAnalyticEvent(key, value)`
 
+The analytics team has requested that we send one key with one value instead of sending a key along with a stringified object. 
+
+```javascript
+//Don't do this
+elementAPI.createAnalyticEvent("myKey", "/ 'value1','value2', 4, 27 /");
+
+// Do this
+elementAPI.createAnalyticEvent("myKey1", "value1");
+elementAPI.createAnalyticEvent("myKey2", "value2");
+elementAPI.createAnalyticEvent("myKey3", 4);
+elementAPI.createAnalyticEvent("myKey4", 27);
+```
+
 ===============
 
 ## Asset Bundles
