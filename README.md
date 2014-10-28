@@ -23,7 +23,7 @@ Gloo Element API
 
 ## What is Element API?
 
-Element API (EAPI) is an *Element Type* and and *API* that allows for rich and engaging interactive content to be developed and deployed within the gloo system. 
+Element API (EAPI) is an *Element Type* and an *API* that allows for rich and engaging interactive content to be developed and deployed within the gloo system. 
 
 **EAPI The API**: The API allows the content creator to access data in the `UserData()` and `User()` objects. 
 
