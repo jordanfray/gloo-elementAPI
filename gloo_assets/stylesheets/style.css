@@ -470,7 +470,7 @@ body, html {
     display: block;
 }
 
-/* Typography */
+/* museosans */
 @font-face {
     font-family: "museosans_100";
     src: url("fonts/museosans_100.ttf");
@@ -495,11 +495,40 @@ body, html {
     font-family: 'museosans_900';
     src: url("fonts/museosans_900.ttf");
 }
+
+/* LibreBaskerville */
+@font-face {
+    font-family: 'libreBaskerville_bold';
+    src: url("fonts/LibreBaskerville_Bold.otf");
+}
+
+@font-face {
+    font-family: 'libreBaskerville_italic';
+    src: url("fonts/LibreBaskerville_Italic.otf");
+}
+
+@font-face {
+    font-family: 'libreBaskerville_regular';
+    src: url("fonts/LibreBaskerville_Regular.otf");
+}
+
+/* Montserrat */
+@font-face {
+    font-family: 'montserrat_bold';
+    src: url("fonts/Montserrat_Bold.ttf");
+}
+
+@font-face {
+    font-family: 'montserrat_regular';
+    src: url("fonts/Montserrat_Regular.ttf");
+}
+
 h1, h2, h3, h4, h5, h6, p {
     margin-top: 0px;
     margin-bottom: 12px;
 }
 
+/* Headings */
 h1 {
     font-size: 2.0em;
     line-height: 48px;
@@ -536,6 +565,7 @@ h6 {
     font-family: 'museosans_100', Arial, sans-serif;
 }
 
+/* Paragraphs */
 p {
     font-size: 1em;
     line-height: 24px;
@@ -547,6 +577,7 @@ p.small {
   font-size: .8em;
 }
 
+/* Other font classes */
 .question {
     font-weight: 400;
     color: #717171;
@@ -1094,4 +1125,102 @@ textarea {
     font-size: 15px;
     font-family: "museosans_100";
     font-weight: 100;
+}
+
+/* Topic Slides */
+.tile {
+  background-color: #6B6926;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  top: 0px;
+  z-index: 1;
+}
+
+.tile img {
+  min-width: 100vw;
+  height: 100vh;
+  opacity: .55;
+  display: block;
+}
+
+.tile .title-block {
+  position: absolute;
+  z-index: 2;
+  top: 20vw;
+  left: 0px;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  margin-top:0px;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.title-block .button {
+  display: table;
+  border: 2px solid white;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 5vw;
+  padding: 4vw 10vw;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: 'montserrat_regular';
+  margin-right: auto;
+  margin-left: auto;
+  margin-top:0px;
+  margin-bottom: 20px;
+  transition: all .3s linear;  
+}
+
+.title-block a  {
+  text-decoration: none;
+  color: white;
+}
+
+.selected {
+    background-color: #CD0000;
+    border: 2px solid #CD0000;
+    transition: all .3s linear;
+}
+
+.title-block .title {
+  font-size: 6vw;
+  font-family: 'libreBaskerville_bold';
+  letter-spacing: 0px;
+  line-height: 8vw;
+  margin-top:0px;
+  margin-bottom: 20px;
+}
+
+.title-block .rule {
+  margin-left: 30vw !important;
+  margin-right: 30vw !important;
+  width: auto;
+  border-bottom: 1px solid white;
+  margin-top:0px;
+  margin-bottom: 20px;
+}
+
+.title-block .type {
+  font-size: 3vw;
+  font-weight: normal;
+  letter-spacing: 1px;
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top:0px;
+  font-family: 'montserrat_regular';
+}
+
+.title-block .description {
+  font-family: 'libreBaskerville_regular';
+  font-size: 4vw;
+  letter-spacing: 1px;
+  display: block;
+  text-align: left;
+  margin-top: 5vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
