@@ -1,35 +1,47 @@
+<head>
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/jQuery_1.11.1.js"></script>
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/fullPage.min.js"></script>
+
+    <link href="gloo_assets_321/gloo_assets/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="gloo_assets_321/gloo_assets/stylesheets/fullPage.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+	.section {
+		width: 100vw;
+    	height: 100vh;
+        margin: 0px;
+		background-color: gray;
+	}
+
+	.card {
+		margin: 10px !important;
+        height: 100%;
+        width: 100%;
+		border-radius: 10px;
+	}
+
+	.go {
+		background-color: #f9b625;
+	}
+
+	.do {
+		background-color: #007398;
+	}
+	
+	.say {
+		background-color: #dd7d1b;
+	}
+
+	.give {
+		background-color: #3eb1c8;
+	}
+</style>
+
 <body>
-	<div id='card-container'></div>
+    <div id='fullpage'>
 
-	<style>
-		.card-container {
-			margin: 0px;
-			background-color: gray;
-		}
-
-		.card {
-			width: 100vw;
-			height: 100vh;
-			margin: 10px;
-			border-radius: 10px;
-		}
-
-		.go {
-			background-color: #f9b625;
-		}
-
-		.do {
-			background-color: #007398;
-		}
-		
-		.say {
-			background-color: #dd7d1b;
-		}
-
-		.give {
-			background-color: #3eb1c8;
-		}
-
+    </div>
 	<script>
 		var availableChallenges = [
 			{
@@ -37,38 +49,35 @@
 				"title":"This is where the title goes",
 				"description":"This is the long version of the descritpion",
 				"excerpt":"The short version of the description",
-				"category","go",
+				"category":"go"
 			},
 			{
 				"acceptButtonId":"1",
 				"title":"This is where the title goes",
 				"description":"This is the long version of the descritpion",
 				"excerpt":"The short version of the description",
-				"category","go",
+				"category":"go"
 			}
 		]
 
 		var acceptedChallenges = [];
 		var completedChalleneges = [];
-
-		$("#cardContainer").append(
-			"<div class='section'>
-				<div class='card " + challenges[i]['category'] + "'>
-					<div class='category'>" + challenges[i]['category'] + "</div>
-					<div class='title'>" + challenges[i]['title'] + "</div>
-					<div class='description'>" + challenges[i]['description'] + "</div>
-					<div class='btn skip'>Skip</div>
-					<div class='btn accept'>Accept</div>
-				</div>
-			</div>"
-		);
-
+        
+        for ( var i=0; i<availableChallenges.length; i++ ) {
+		    $("#fullpage").append("<div class='section'><div class='card " + availableChallenges[i]['category'] + "'><div class='category'>" + availableChallenges[i]['category'] + "</div><div class='title'>" + availableChallenges[i]['title'] + "</div><div class='description'>" + availableChallenges[i]['description'] + "</div><div class='btn accept'>Accept</div></div></div>");
+        }
+        
 		$('.accept').click(function() {
-		    var id = $(this).attr('id').split('-')[1];
+		    var id = $(this).attr('id');
 		    
 		    acceptedChallenges.push(availableChallenges.splice(id, 1));
 		    elementAPI.userData().setValue("acceptedChallenges", JSON.stringify(acceptedChallenges));
 		    elementAPI.userData().setValue("availableChallenges", JSON.stringify(availableChallenges));
 		});
+        
+        $('#fullpage').fullpage({
+            scrollingSpeed: 0,
+            css3: true
+        });
 	</script>
 </body>
