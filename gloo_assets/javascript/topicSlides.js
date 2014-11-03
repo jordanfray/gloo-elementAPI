@@ -1,4 +1,4 @@
-function topicSlides(slides) {
+function topicSlides(slides, settings) {
     var selectedSlides = JSON.parse(elementAPI.userData().getValue('selectedSlides'));
     
     if ( selectedSlides === undefined || selectedSlides === null) {
@@ -49,6 +49,11 @@ function topicSlides(slides) {
             }
         }
     });
+
+    if ( settings !== undefined ) {
+        $(".tile").css("background-color", settings['backgroundColor']);
+        $(".tile img").css("opacity", parseInt(settings['imageOpacity'].slice(0, - 1))/100);
+    };
 };
 
 
