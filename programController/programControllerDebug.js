@@ -12,7 +12,7 @@ function debuglog() {
 
 (
     function (applets, programData) {
-        var ids = [];
+        var ids = []; // Default Applets
 
         debuglog(applets);
 
