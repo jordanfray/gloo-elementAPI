@@ -1,5 +1,5 @@
 /*  
-	File Updated: 10/17/2014
+	File Updated: 11/04/2014
 	Documentation: https://github.com/jordanfray/gloo-elementAPI/wiki/helperFunctions.js
 */
 
@@ -30,4 +30,36 @@ function sortArrayAscending(array,column) {
 	array.sort(function(a,b) {
 	    return a[column]-b[column];
 	});
+}
+
+function postToSpace(postBtnClass) {
+    // Check to see if the user has answered any of the questions and load their previous answers into the textareas
+    var answers = JSON.parse(elementAPI.userData().getValue("answers"));
+    console.log(answers);
+
+    if ( answers === undefined || answers === null ) {
+        answers = [];
+    } else {
+        for ( var i=0; i<answers.length; i++ ) {
+            $("#textarea-" + i).text(answers[i]);
+        }
+    }
+        
+    // Save the users answer to the "answers" array and post the text to the selected space
+    $(postBtnClass).click(function() {
+        var id= $(this).attr('id').split('-')[1];
+        
+        var question = $("#question-" + id).text();
+        var answer = $("#textarea-" + id).val();
+        var url = "gloo://app/saved_items/new/note?desc=" + question.replace(/ /g, "%20") + "&text=" + answer.replace(/ /g, "%20");
+        
+        answers[id] = answer;
+        elementAPI.userData().setValue("answers", JSON.stringify(answers));
+        
+        if (navigator.userAgent.match(/Android/i)) {
+            document.location = url;     
+        } else {
+            window.location.replace(url);
+        }
+    });
 }
