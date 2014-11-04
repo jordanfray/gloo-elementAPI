@@ -61,7 +61,7 @@ var AppletGroups = {
         databagKey : 'week5Complete'
     }
 };
-//“truckDriver”, “business”, “welder”, “culinary”
+
 (
     function (applets, programData) {
         var ids = [174327,180786];
