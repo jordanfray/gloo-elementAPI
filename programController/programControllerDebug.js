@@ -12,11 +12,15 @@ function debuglog() {
 
 (
     function (applets, programData) {
-        var ids = []; // Default Applets
+        var ids = [];
 
-        debuglog(applets);
+        // add logic to push applet ids into ids
 
-        // add logic to push applet ids into applets
+        debuglog(
+           "---------Applets----------", applets,
+           "---------Returned IDs----------", ids,
+           "---------Program Data----------", programData
+        );
 
         return ids;
     }
