@@ -1,4 +1,3 @@
-// I don't think this is working... Stay Tuned for a bug fix.
 var DEBUG = true;
 
 function debuglog() {
@@ -11,17 +10,14 @@ function debuglog() {
     }
 }
 
-function getAppletData(applet, key, parse) {
-    if (!!applet.data_bags) {
-        var data_bag = applet.data_bags[((typeof key === "string") ? key : key.toString())];
-        if (!!data_bag && parse === true) {
-            try {
-                return JSON.parse(data_bag)
-            } catch(ex) {
-                return data_bag
-            }
-        }
-        return data_bag;
+(
+    function (applets, programData) {
+        var ids = [];
+
+        debuglog(applets);
+
+        // add logic to push applet ids into applets
+
+        return ids;
     }
-    return null
-}
+)
