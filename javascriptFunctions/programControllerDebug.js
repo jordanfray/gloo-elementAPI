@@ -1,3 +1,4 @@
+// I don't think this is working... Stay Tuned for a bug fix.
 var DEBUG = true;
 
 function debuglog() {
