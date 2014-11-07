@@ -1,0 +1,70 @@
+<head>
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/jQuery_1.11.1.js"></script>
+    <link href="gloo_assets_321/gloo_assets/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+    .sort-container {
+        background-color: #e7e7e7;
+        padding: 5px;
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+    
+    li {
+        margin: 0px 0px 0px 0px;
+        width: auto;
+        height:auto;
+        background-color: #f8f8f8;
+        color: black;
+        font-family: helvetica;
+        font-weight: 100;
+        font-size: 18px;
+        text-align: left;
+        padding: 5vw 0 5vw 3vw;
+    }
+    
+    /* Style of li while being dragged */
+    .slip-reordering {
+        background-color: #38b3ce;
+        color: white;
+    }
+    
+    .not-selectable, body {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+</style>
+
+<body class="not-selectable">
+    <div class="content-container">
+        
+        <p class="question">Order the following items so that your favorite items are near the top.</p>
+        
+        <div class="light-rule"></div>
+        
+        <div class="sort-container">
+            <ul class="remove-bullets" id="sortable-list">
+                <li class="not-selectable">Coffee</li>
+                <li class="not-selectable">Long Walks on the Beach</li>
+                <li class="not-selectable">Horseback Riding</li>
+                <li class="not-selectable">Snowboarding</li>
+                <li class="not-selectable">Skiing</li>
+                <li class="not-selectable">Sword Swallowing</li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/slip.js"></script>
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/helperFunctions.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            sortableList();
+        });
+    </script>

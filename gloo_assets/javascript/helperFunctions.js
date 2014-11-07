@@ -63,3 +63,31 @@ function postToSpace(postBtnClass) {
         }
     });
 }
+
+function sortableList() {
+    var list = document.querySelector('ul#sortable-list');
+    new Slip(list);
+    
+    var order = JSON.parse(elementAPI.userData().getValue('order'));
+    
+    if (order === undefined || order === null) {
+        order = [];
+    }
+    
+    for (var i=0; i<=order.length; i++) {
+        $('ul li:nth-child(' + i + ')').text(order[i]);
+    }
+    
+    function saveOrder() {
+        for( var i=1; i<=document.getElementsByTagName('li').length; i++ ) {
+            order[i] = $('ul li:nth-child(' + i + ')').text();
+        }
+        elementAPI.userData().setValue('order', JSON.stringify(order));
+    }
+    
+    list.addEventListener('slip:reorder', function(e) {
+        e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+    });
+    
+    list.addEventListener('slip:reorder', saveOrder);
+};

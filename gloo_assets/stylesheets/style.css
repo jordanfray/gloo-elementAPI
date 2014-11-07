@@ -632,6 +632,13 @@ li {
     color: #444444;
 }
 
+/* Helper Classes */
+ul.remove-bullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+    
 /* Know & Launch */
 .row-container {
   margin-bottom: 20px;
