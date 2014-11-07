@@ -64,7 +64,7 @@ function postToSpace(postBtnClass) {
     });
 }
 
-function sortableList() {
+function sortableList(dataBagKey) {
     var list = document.querySelector('ul#sortable-list');
     new Slip(list);
     
@@ -82,7 +82,7 @@ function sortableList() {
         for( var i=1; i<=document.getElementsByTagName('li').length; i++ ) {
             order[i] = $('ul li:nth-child(' + i + ')').text();
         }
-        elementAPI.userData().setValue('order', JSON.stringify(order));
+        elementAPI.userData().setValue(dataBagKey, JSON.stringify(order));
     }
     
     list.addEventListener('slip:reorder', function(e) {
