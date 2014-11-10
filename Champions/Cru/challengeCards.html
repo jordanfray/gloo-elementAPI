@@ -1,26 +1,60 @@
-<head>
+<head>    
     <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/jQuery_1.11.1.js"></script>
     <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/fullPage.min.js"></script>
 
     <link href="gloo_assets_321/gloo_assets/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="gloo_assets_321/gloo_assets/font-awesome/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
     <link href="gloo_assets_321/gloo_assets/stylesheets/fullPage.css" media="screen" rel="stylesheet" type="text/css">
 </head>
 
 <style>
-    .section {
-		width: 100vw;
-		height: 100vh;
-		margin: 0px;
-		background-color: gray;
-	}
-
-	.card {
-		margin: 10px !important;
-		height: 100%;
+    .card {
+        height: 100%;
 		width: 100%;
-		border-radius: 10px;
+        margin: 0px;
+        position: absolute;
+        top:0px;
+        left:0px;
 	}
-
+    
+    .category {
+        margin: 5% 5% 0 5%;
+        padding-bottom: 5%;
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'museosans_900';
+        font-size: 5em;
+        border-bottom: 2px solid white;
+    }
+    
+    .title {
+        margin: 5% 5% 0 5%;
+        color: white;
+        text-align: left;
+        font-family: 'museosans_300';
+        font-size: 2em;
+    }
+    
+    .description {
+        margin: 5% 5% 0 5%;
+        color: white;
+        text-align: left;
+        font-family: 'museosans_500';
+        font-size: 1.2em;
+    }
+    
+    .challenge-counter {
+        width: 100%;
+        position: absolute;
+        bottom: 2%;
+        color: white;
+        text-align: center;
+        font-family: 'museosans_500';
+        font-size: 1em;
+        margin: 0px;
+    }
+    
 	.go {
 		background-color: #f9b625;
 	}
@@ -36,236 +70,257 @@
 	.give {
 		background-color: #3eb1c8;
 	}
+    
+    .round-btn {
+        color: white;
+        display: inline;
+        font-size: 6em;
+    }
+
+    .skip {
+        position: absolute;
+        bottom: 5%;
+        left: 10% !important;
+    }
+    
+    .add {
+        position: absolute;
+        bottom: 5%;
+        right: 10% !important;
+    }
 </style>
 
 <body>
     <div id='fullpage'>
-
     </div>
+    
 	<script>
-		var availableChallenges = [
-			{
-				"acceptButtonID":"0",
-				"category":"Give",
-				"title":"Friendly Fast Food",
-				"description":"Here's a quick way to spread some joy. Pay for the meal of the person in line behind you."
-			},
-			{
-				"acceptButtonId":"1",
-				"category":"Do",
-				"title":"Just Do It",
-				"description":"What's one chore your roommate/sibling hates the most? Cross it off their to do list today."
-			},
-			{
-				"acceptButtonId":"2",
-				"category":"Do",
-				"title":"Be Happy",
-				"description":"Smiling is a universal language. Smile at someone you pass on the street today."
-			},
-			{
-				"acceptButtonId":"3",
-				"category":"Do",
-				"title":"Mi Casa, Su Casa",
-				"description":"The meal can be as simple as Kraft Mac N' Cheese. Invite someone over to your place for dinner."
-			},
-			{
-				"acceptButtonId":"4",
-				"category":"Give",
-				"title":"Mystery Giver",
-				"description":"What's your favorite place to get a sweet treat? Buy a gift card and leave it in a public place in your office/school with a note that says, \"Enjoy this one on me!\""
-			},
-			{
-				"acceptButtonId":"5",
-				"category":"Say",
-				"title":"I'm All Ears",
-				"description":"We all want to feel heard. Be intentional to actively listen to those who talk to you today."
-			},
-			{
-				"acceptButtonId":"6",
-				"category":"Give",
-				"title":"A Literary Inspiration",
-				"description":"Which book has inspired you the most? Highlight or make notes of your favorite lines and leave a copy in the cafeteria. Be sure to leave a note that says, \"Free!\" on it."
-			},
-			{
-				"acceptButtonId":"7",
-				"category":"Give",
-				"title":"Freshly Baked",
-				"description":"There is nothing better than a freshly baked cookie. Whether you make them or get your mom to, bring in some homemade cookies for your classmates."
-			},
-			{
-				"acceptButtonId":"8",
-				"category":"Go",
-				"title":"Lost",
-				"description":"College campuses can be very confusing, especially when they are new to you. Keep your eyes out for someone who looks lost and help them find their way."
-			},
-			{
-				"acceptButtonId":"9",
-				"category":"Do",
-				"title":"No Service",
-				"description":"Can you hear me now? Keep your phone in your pocket when you're talking with people today."
-			},
-			{
-				"acceptButtonId":"10",
-				"category":"Say",
-				"title":"I Was Wrong",
-				"description":"We all have to say it from time to time. Admit a mistake you made today or in the past."
-			},
-			{
-				"acceptButtonId":"11",
-				"category":"Say",
-				"title":"Memory Lane",
-				"description":"\"Remember that one time...?\" Think of a funny memory to cheer up a friend who's feeling down."
-			},
-			{
-				"acceptButtonId":"12",
-				"category":"Give",
-				"title":"Give It Away",
-				"description":"What is collecting dust in your house? Give it away to someone who could actually use it."
-			},
-			{
-				"acceptButtonId":"13",
-				"category":"Give",
-				"title":"What's Mine is Yours",
-				"description":"Name that thing you can't live without. Give it away to someone who would really appreciate it."
-			},
-			{
-				"acceptButtonId":"14",
-				"category":"Give",
-				"title":"Cancelled Debt",
-				"description":"Big or small, you choose. Pick a debt someone owes you and tell them they don't have to pay you back."
-			},
-			{
-				"acceptButtonId":"15",
-				"category":"Go",
-				"title":"Goodie Bag",
-				"description":"Put a care pack together and keep it in your car. Go look for someone in need, and give it to them. Here are a few ideas: new socks, water bottle, granola bar, travel toothbrush and toothpaste."
-			},
-			{
-				"acceptButtonId":"16",
-				"category":"Give",
-				"title":"Fresh Produce",
-				"description":"An apple a day... Give someone a piece of fresh produce to enjoy today."
-			},
-			{
-				"acceptButtonId":"17",
-				"category":"Do",
-				"title":"You First",
-				"description":"We're all in a rush. As you wait in line today at the grocery store or wherever, be intentional about letting others cut in front of you."
-			},
-			{
-				"acceptButtonId":"18",
-				"category":"Go",
-				"title":"Natural Beauty",
-				"description":"Find a patch of wildflowers or get them from the grocery store. Give them to someone who appreciates nature."
-			},
-			{
-				"acceptButtonId":"19",
-				"category":"Give",
-				"title":"Bonus",
-				"description":"Everyone loves free food. Leave some money in a vending machine for the next person to score a free snack."
-			},
-			{
-				"acceptButtonId":"20",
-				"category":"Say",
-				"title":"Thank You Note",
-				"description":"Use your manners! Write \"Thank You\" on a post-it note and leave it for your server the next time you go out for lunch."
-			}
-			{
-				"acceptButtonId":"21",
-				"category":"Do",
-				"title":"A Little Help, Please?",
-				"description":"Keep your eyes open for someone who could use an extra hand today."
-			}
-			{
-				"acceptButtonId":"22",
-				"category":"Say",
-				"title":"Thinking of You",
-				"description":"Think of someone you haven't talked to in a while. Shoot them a text, email, or call to say you are thinking of them."
-			{
-				"acceptButtonId":"23",
-				"category":"Say",
-				"title":"Great Work",
-				"description":"It's easy to criticize those in authority over you. Take the higher road today and tell your professor or boss something you appreciate about them."
-			}
-			{
-				"acceptButtonId":"24",
-				"category":"Go",
-				"title":"Take It Out",
-				"description":"Up for a humble favor? Knock on your neighbor's door and ask them if you can take their trash out for them."
-			}
-			{
-				"acceptButtonId":"25",
-				"category":"Do",
-				"title":"The Real World",
-				"description":"There is power in testimony. It makes God's redeeming power come to life. Post an \"I Am Second\" story to your Facebook page. iamsecond.com"
-			}
-			{
-				"acceptButtonId":"26",
-				"category":"Go",
-				"title":"Prayer Walk",
-				"description":"Do a prayer walk on campus. Pray for classmates, roommates, professors and anyone else the Spirit brings to mind."
-			}
-			{
-				"acceptButtonId":"27",
-				"category":"Go",
-				"title":"What's Your Perspective?",
-				"description":"Learn about someone else's point of view. Go through the Perspectives cards with a friend or stranger."
-			}
-			{
-				"acceptButtonId":"28",
-				"category":"Say",
-				"title":"Let's Chat",
-				"description":"We say it all the time, \"How are you?\" When you ask a friend or classmate today, ask with sincerety and offer to pray for them." 
-			{
-				"acceptButtonId":"29",
-				"category":"Go",
-				"title":"Intentionality",
-				"description":"Make a list of 5 friends or family members who don't know Jesus. Commit to pray for them and seek out ways to share the gospel."
-			}
-			{
-				"acceptButtonId":"30",
-				"category":"Go",
-				"title":"Be The DD",
-				"description":"God call us to be in the world but not of it. Go to a party where people are drinking and offer to be a designated driver."
-			}
-			{
-				"acceptButtonId":"31",
-				"category":"Do",
-				"title":"Hunger Pains",
-				"description":"Fast today and pray for your friends and family members who don't know Jesus."
-			}
-			{
-				"acceptButtonId":"32",
-				"category":"Say",
-				"title":"Blind Faith",
-				"description":"Facebook is often full of rants and complaints. Post a link to \"Beyond Blind Faith\" on your wall."
-			}
-			{
-				"acceptButtonId":"33",
-				"category":"Say",
-				"title":"Background Check",
-				"description":"Sometimes all it takes is starting the conversation. Ask a friend about their spiritual background."
-			}
-		]
-
-		var acceptedChallenges = [];
-		var completedChalleneges = [];
-        
-        for ( var i=0; i<availableChallenges.length; i++ ) {
-		    $("#fullpage").append("<div class='section'><div class='card " + availableChallenges[i]['category'] + "'><div class='category'>" + availableChallenges[i]['category'] + "</div><div class='title'>" + availableChallenges[i]['title'] + "</div><div class='description'>" + availableChallenges[i]['description'] + "</div><div class='btn accept'>Accept</div></div></div>");
-        }
-        
-		$('.accept').click(function() {
-		    var id = $(this).attr('id');
-		    
-		    acceptedChallenges.push(availableChallenges.splice(id, 1));
-		    elementAPI.userData().setValue("acceptedChallenges", JSON.stringify(acceptedChallenges));
-		    elementAPI.userData().setValue("availableChallenges", JSON.stringify(availableChallenges));
-		});
-        
-        $('#fullpage').fullpage({
-            scrollingSpeed: 0,
-            css3: true
+        $(document).ready(function() {
+            //Load the availableChallenges Array
+            var availableChallenges = JSON.parse(elementAPI.userData().getValue('availableChallenges'));
+            if ( availableChallenges === undefined || availableChallenges === null ) {
+                var availableChallenges = [
+                    {
+                        "acceptButtonId":"0",
+                    	"category":"give",
+                    	"title":"Friendly Fast Food",
+                    	"description":"Here's a quick way to spread some joy. Pay for the meal of the person in line behind you."
+                    },
+                    {
+                    	"acceptButtonId":"1",
+                    	"category":"do",
+                    	"title":"Just Do It",
+                    	"description":"What's one chore your roommate/sibling hates the most? Cross it off their to do list today."
+                    },
+                    {
+                    	"acceptButtonId":"2",
+                    	"category":"do",
+                    	"title":"Be Happy",
+                    	"description":"Smiling is a universal language. Smile at someone you pass on the street today."
+                    },
+                    {
+                    	"acceptButtonId":"3",
+                    	"category":"do",
+                    	"title":"Mi Casa, Su Casa",
+                    	"description":"The meal can be as simple as Kraft Mac N' Cheese. Invite someone over to your place for dinner."
+                    },
+                    {
+                    	"acceptButtonId":"4",
+                    	"category":"give",
+                    	"title":"Mystery Giver",
+                    	"description":"What's your favorite place to get a sweet treat? Buy a gift card and leave it in a public place in your office/school with a note that says, \"Enjoy this one on me!\""
+                    },
+                    {
+                    	"acceptButtonId":"5",
+                    	"category":"say",
+                    	"title":"I'm All Ears",
+                    	"description":"We all want to feel heard. Be intentional to actively listen to those who talk to you today."
+                    },
+                    {
+                    	"acceptButtonId":"6",
+                    	"category":"give",
+                    	"title":"A Literary Inspiration",
+                    	"description":"Which book has inspired you the most? Highlight or make notes of your favorite lines and leave a copy in the cafeteria. Be sure to leave a note that says, \"Free!\" on it."
+                    },
+                    {
+                    	"acceptButtonId":"7",
+                    	"category":"give",
+                    	"title":"Freshly Baked",
+                    	"description":"There is nothing better than a freshly baked cookie. Whether you make them or get your mom to, bring in some homemade cookies for your classmates."
+                    },
+                    {
+                    	"acceptButtonId":"8",
+                    	"category":"go",
+                    	"title":"Lost",
+                    	"description":"College campuses can be very confusing, especially when they are new to you. Keep your eyes out for someone who looks lost and help them find their way."
+                    },
+                    {
+                    	"acceptButtonId":"9",
+                    	"category":"do",
+                    	"title":"No Service",
+                    	"description":"Can you hear me now? Keep your phone in your pocket when you're talking with people today."
+                    },
+                    {
+                    	"acceptButtonId":"10",
+                    	"category":"say",
+                    	"title":"I Was Wrong",
+                    	"description":"We all have to say it from time to time. Admit a mistake you made today or in the past."
+                    },
+                    {
+                    	"acceptButtonId":"11",
+                    	"category":"say",
+                    	"title":"Memory Lane",
+                    	"description":"\"Remember that one time...?\" Think of a funny memory to cheer up a friend who's feeling down."
+                    },
+                    {
+                    	"acceptButtonId":"12",
+                    	"category":"give",
+                    	"title":"give It Away",
+                    	"description":"What is collecting dust in your house? Give it away to someone who could actually use it."
+                    },
+                    {
+                    	"acceptButtonId":"13",
+                    	"category":"give",
+                    	"title":"What's Mine is Yours",
+                    	"description":"Name that thing you can't live without. Give it away to someone who would really appreciate it."
+                    },
+                    {
+                    	"acceptButtonId":"14",
+                    	"category":"give",
+                    	"title":"Cancelled Debt",
+                    	"description":"Big or small, you choose. Pick a debt someone owes you and tell them they don't have to pay you back."
+                    },
+                    {
+                    	"acceptButtonId":"15",
+                    	"category":"go",
+                    	"title":"goodie Bag",
+                    	"description":"Put a care pack together and keep it in your car. Go look for someone in need, and give it to them. Here are a few ideas: new socks, water bottle, granola bar, travel toothbrush and toothpaste."
+                    },
+                    {
+                    	"acceptButtonId":"16",
+                    	"category":"give",
+                    	"title":"Fresh Produce",
+                    	"description":"An apple a day... Give someone a piece of fresh produce to enjoy today."
+                    },
+                    {
+                    	"acceptButtonId":"17",
+                    	"category":"do",
+                    	"title":"You First",
+                    	"description":"We're all in a rush. As you wait in line today at the grocery store or wherever, be intentional about letting others cut in front of you."
+                    },
+                    {
+                    	"acceptButtonId":"18",
+                    	"category":"go",
+                    	"title":"Natural Beauty",
+                    	"description":"Find a patch of wildflowers or get them from the grocery store. Give them to someone who appreciates nature."
+                    },
+                    {
+                    	"acceptButtonId":"19",
+                    	"category":"give",
+                    	"title":"Bonus",
+                    	"description":"Everyone loves free food. Leave some money in a vending machine for the next person to score a free snack."
+                    },
+                    {
+                    	"acceptButtonId":"20",
+                    	"category":"say",
+                    	"title":"Thank You Note",
+                    	"description":"Use your manners! Write \"Thank You\" on a post-it note and leave it for your server the next time you go out for lunch."
+                    },
+                    {
+                    	"acceptButtonId":"21",
+                    	"category":"do",
+                    	"title":"A Little Help, Please?",
+                    	"description":"Keep your eyes open for someone who could use an extra hand today."
+                    },
+                    {
+                    	"acceptButtonId":"22",
+                    	"category":"say",
+                    	"title":"Thinking of You",
+                    	"description":"Think of someone you haven't talked to in a while. Shoot them a text, email, or call to say you are thinking of them."
+                    },
+                    {
+                    	"acceptButtonId":"23",
+                    	"category":"say",
+                    	"title":"Great Work",
+                    	"description":"It's easy to criticize those in authority over you. Take the higher road today and tell your professor or boss something you appreciate about them."
+                    },
+                    {
+                    	"acceptButtonId":"24",
+                    	"category":"go",
+                    	"title":"Take It Out",
+                    	"description":"Up for a humble favor? Knock on your neighbor's door and ask them if you can take their trash out for them."
+                    },
+                    {
+                    	"acceptButtonId":"25",
+                    	"category":"do",
+                    	"title":"The Real World",
+                    	"description":"There is power in testimony. It makes God's redeeming power come to life. Post an \"I Am Second\" story to your Facebook page. iamsecond.com"
+                    },
+                    {
+                    	"acceptButtonId":"26",
+                    	"category":"go",
+                    	"title":"Prayer Walk",
+                    	"description":"do a prayer walk on campus. Pray for classmates, roommates, professors and anyone else the Spirit brings to mind."
+                    },
+                    {
+                    	"acceptButtonId":"27",
+                    	"category":"go",
+                    	"title":"What's Your Perspective?",
+                    	"description":"Learn about someone else's point of view. Go through the Perspectives cards with a friend or stranger."
+                    },
+                    {
+                    	"acceptButtonId":"28",
+                    	"category":"say",
+                    	"title":"Let's Chat",
+                    	"description":"We say it all the time, \"How are you?\" When you ask a friend or classmate today, ask with sincerety and offer to pray for them." 
+                    },
+                    {
+                    	"acceptButtonId":"29",
+                    	"category":"go",
+                    	"title":"Intentionality",
+                    	"description":"Make a list of 5 friends or family members who don't know Jesus. Commit to pray for them and seek out ways to share the gospel."
+                    },
+                    {
+                    	"acceptButtonId":"30",
+                    	"category":"go",
+                    	"title":"Be The DD",
+                    	"description":"god call us to be in the world but not of it. Go to a party where people are drinking and offer to be a designated driver."
+                    },
+                    {
+                    	"acceptButtonId":"31",
+                    	"category":"do",
+                    	"title":"Hunger Pains",
+                    	"description":"Fast today and pray for your friends and family members who don't know Jesus."
+                    },
+                    {
+                    	"acceptButtonId":"32",
+                    	"category":"say",
+                    	"title":"Blind Faith",
+                    	"description":"Facebook is often full of rants and complaints. Post a link to \"Beyond Blind Faith\" on your wall."
+                    },
+                    {
+                    	"acceptButtonId":"33",
+                    	"category":"say",
+                    	"title":"Background Check",
+                    	"description":"Sometimes all it takes is starting the conversation. Ask a friend about their spiritual background."
+                    }
+        		];
+            };
+            
+            // Append the availableChallenges to the HTML
+            for ( var i=0; i<availableChallenges.length; i++ ) {
+                $("#fullpage").append("<div class='section'><div class='card " + availableChallenges[i]['category'] + "'><div class='category'>" + availableChallenges[i]['category'] + "</div><div class='title'>" + availableChallenges[i]['title'] + "</div><div class='description'>" + availableChallenges[i]['description'] + "</div><div class='round-btn skip'><span class='fa fa-thumbs-o-down'></span></div><div id='" + availableChallenges[i]['acceptButtonId'] + "' class='round-btn add'><span class='fa fa-thumbs-o-up'></span></div><div class='challenge-counter'><span>" + (parseInt(availableChallenges[i]['acceptButtonId'])+1) + " of " + availableChallenges.length + "</span></div></div></div>");
+            };
+            
+            $(".skip").click(function(){
+                $.fn.fullpage.moveSectionDown();
+            });
+            
+            // Initialize fullPage.js function after cards are loaded
+            $('#fullpage').fullpage({
+                scrollingSpeed: 0,
+                css3: true
+            });
         });
 	</script>
 </body>
