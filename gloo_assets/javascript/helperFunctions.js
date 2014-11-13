@@ -91,3 +91,14 @@ function sortableList(dataBagKey) {
     
     list.addEventListener('slip:reorder', saveOrder);
 };
+
+// Turn off Internal Review in the mobile apps
+function disableInternalReview() {
+    var links = document.getElementsByTagName("a");
+    for ( var i=0; i<links.length; i++ ) {
+        if ( links[i].text === "INTERNAL REVIEW") {
+            links[i].style.display = 'none';
+        };
+    };
+};
+
