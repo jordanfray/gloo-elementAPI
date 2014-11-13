@@ -102,3 +102,19 @@ function disableInternalReview() {
     };
 };
 
+function navigation(nav) {
+    $("#lower-nav").append("<div class='applet-title'>" + nav['appletTitle'] + " </div>");
+    
+    // Previous Applets
+    for ( var i=0; i < nav['previousApplets'].length; i++ ) {
+        $("#lower-nav").append("<a href='gloo://app/applets/" + nav['previousApplets'][i][1] + "'><i class='fa fa-circle-o'></i><div class='applet-link'>" + nav['previousApplets'][i][0] + "</div><br></a>");
+    }
+    
+    // This Applet
+    $("#lower-nav").append("<i class='fa fa-arrow-circle-right'></i><div class='this-applet'>" + nav['thisApplet'] + "</div><br>");
+    
+    // Next Applets
+    for ( var i=0; i < nav['nextApplets'].length; i++ ) {
+        $("#lower-nav").append("<a href='gloo://app/applets/" + nav['nextApplets'][i][1] + "'><i class='fa fa-circle-o'></i><div class='applet-link'>" + nav['nextApplets'][i][0] + "</div><br></a>");
+    }
+};

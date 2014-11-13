@@ -528,86 +528,145 @@ table {
 	==============================END OF NORMALIZE===============================
    	========================================================================== */
 
-/* Polymer Colors
-	Blue 	- color: #40b2cd;
-	Tan		- color: #f7f5f2;
-	White	- color: #ffffff;
-	Gray	- color: #888888;
-	Black 	- color: #333333;
-	Shadow 	- color: #d6d5d3;
-	Rule	- color: #e5e5e5;
-*/
-.body {
-	margin: 0px;
-	color: #f7f5f2;
-}
-
-.elements {
-	border-radius: 6px;
-	background: white;
-	box-shadow: 1px 1px 0 0 #d6d5d3;;
-	padding: 25px;
-}
-
-.rule {
-	width: 100%;
-	border-bottom: 2px solid #e5e5e5;
-}
-
-/* museosans */
-@font-face {
-    font-family: "museosans_100";
-    src: url("fonts/museosans_100.ttf");
-}
-
-@font-face {
-    font-family: 'museosans_300';
-    src: url("fonts/museosans_300.ttf");
-}
-
-@font-face {
-    font-family: 'museosans_500';
-    src: url("fonts/museosans_500.ttf");
-}
-
-@font-face {
-    font-family: 'museosans_700';
-    src: url("fonts/museosans_700.ttf");
-}
-
-@font-face {
-    font-family: 'museosans_900';
-    src: url("fonts/museosans_900.ttf");
-}
-
-h1 {
-	font-family: 'museosans_100', sans-serif;
-	line-height: 40;
-	font-size: 32px;
-	color: #333333;
-}
-
-p {
-	font-family: 'museosans_300', sans-serif;
-	line-height: 23;
-	font-size: 14px;
-	color: #333333;
-}
-
-.blockquote {
-	font-family: 'museosans_300', sans-serif;
-	font-style: italic;
-	font-size: 23px;
-	color: #333333;
-	margin: 20px 20px 20px 0px;
-	border-left: 2px solid black;
-	padding-left: 20px;
-}
-
-.section_title {
-	font-family: 'museosans_900', sans-serif;
-	font-size: 22px;
-	color: #888888;
-
-}
-
+/    /* Polymer Colors
+        Blue 	- color: #40b2cd;
+    	Tan		- color: #f7f5f2;
+    	White	- color: #ffffff;
+    	Gray	- color: #888888;
+    	Black 	- color: #333333;
+    	Shadow 	- color: #d6d5d3;
+    	Rule	- color: #e5e5e5;
+    */
+    body, html {
+    	margin: 0px;
+    	background-color: #f7f5f2;
+    }
+    
+    .element-container {
+    	margin: 15px;
+        border-radius: 6px;
+    	background: white;
+    	box-shadow: 1px 1px 0 0 #d6d5d3;;
+    	padding: 20px;
+    }
+    
+    .nav {
+        margin: 15px;
+        padding: 0 0 6px 0;
+    }
+    
+    .nav:first-of-type {
+        border-bottom: 1px solid #d4d4d4;
+    }
+    
+    /* museosans */
+    @font-face {
+        font-family: "museosans_100";
+        src: url("fonts/museosans_100.ttf");
+    }
+    
+    @font-face {
+        font-family: 'museosans_300';
+        src: url("fonts/museosans_300.ttf");
+    }
+    
+    @font-face {
+        font-family: 'museosans_500';
+        src: url("fonts/museosans_500.ttf");
+    }
+    
+    @font-face {
+        font-family: 'museosans_700';
+        src: url("fonts/museosans_700.ttf");
+    }
+    
+    @font-face {
+        font-family: 'museosans_900';
+        src: url("fonts/museosans_900.ttf");
+    }
+    
+    h1 {
+    	font-family: 'museosans_100', sans-serif;
+    	line-height: 40px;
+    	font-size: 32px;
+    	color: #333333;
+    }
+    
+    p {
+    	font-family: 'museosans_300', sans-serif;
+    	line-height: 23px;
+    	font-size: 16px;
+        font-weight: 100;
+    	color: #333333;
+    }
+    
+    .blockquote {
+    	font-family: 'museosans_300', sans-serif;
+    	font-style: italic;
+    	font-size: 20px;
+    	color: #333333;
+    	margin: 20px 20px 20px 0px;
+    	border-left: 2px solid black;
+    	padding-left: 20px;
+    }
+    
+    .applet-title {
+        font-family: 'museosans_900', sans-serif;
+        font-weight: 900;
+        font-size: 22px;
+    	color: #888888;
+    }
+    
+    .applet-sub-title {
+        font-family: 'museosans_900', sans-serif;
+        font-size: 20px;
+        color: #40b2cd;
+    }
+    
+    img.inline {
+        width: 100%;
+    }
+    
+    .fa-arrow-circle-right {
+        color: #40b2cd;
+        display: inline-block;
+        font-size: 18px;
+        margin: 0 5px 0px 20px;
+    }
+    
+    .fa-circle-o {
+        color: #888888;
+        display: inline-block;
+        font-size: 18px;
+        margin: 0 5px 0px 20px;
+    }
+    
+    .applet-link {
+        display: inline-block;
+        font-family: 'museosans_100', sans-serif;
+        font-weight: 100;
+        font-size: 18px;
+        color: #40b2cd !important;
+        margin: 6px 0 0 0;
+    }
+    
+    .this-applet {
+        display: inline-block;
+        font-family: 'museosans_100', sans-serif;
+        font-weight: 100;
+        font-size: 18px;
+        color: #888888;
+        margin: 6px 0 0 0;
+    }
+    
+    .path {
+        display: inline-block;
+        font-family: 'museosans_100', sans-serif;
+        font-weight: 100;
+        font-size: 14px;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #40b2cd !important;
+    }
