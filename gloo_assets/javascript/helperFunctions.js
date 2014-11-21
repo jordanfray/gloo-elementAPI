@@ -51,14 +51,15 @@ function postToSpace(postBtnClass) {
         
         var question = $("#question-" + id).text();
         var answer = $("#textarea-" + id).val();
-        var url = "gloo://app/saved_items/new/note?desc=" + question.replace(/ /g, "%20") + "&text=" + answer.replace(/ /g, "%20");
         
         answers[id] = answer;
         elementAPI.userData().setValue("answers", JSON.stringify(answers));
         
-        if (navigator.userAgent.match(/Android/i)) {
+        if (navigator.userAgent.match(/Android/i)) { //Android
+            var url = "gloo://app/journal?desc=" + question.replace(/ /g, "%20") + "&text=" + answer.replace(/ /g, "%20");
             document.location = url;     
-        } else {
+        } else { //iOS
+            var url = "gloo://app/saved_items/new/note?desc=" + question.replace(/ /g, "%20") + "&text=" + answer.replace(/ /g, "%20");
             window.location.replace(url);
         }
     });
