@@ -529,7 +529,7 @@ table {
    	========================================================================== */
 
 /* Polymer Colors
-    Blue  - color: #40b2cd;
+  Blue  - color: #40b2cd;
   Tan   - color: #f7f5f2;
   White - color: #ffffff;
   Gray  - color: #888888;
@@ -541,6 +541,46 @@ table {
 body, html {
   margin: 0px;
   background-color: #f7f5f2;
+}
+
+.header {
+  margin: 15px;
+}
+
+.header h1 {
+  font-family: 'museosans_100';
+  font-weight: 100;
+  line-height: 28px;
+  font-size: 32px;
+  color: #333333;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin: 15px;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 1px 1px 0 0 #d6d5d3;;
+  padding: 15px;
+}
+
+.section-title {
+  font-family: 'museosans_100';
+  font-weight: 100;
+  font-size: 24px;
+  color: #40b2cd;
+  margin: 0px 0px 5px 0px;
+}
+
+.section-description {
+  font-family: 'museosans_300', sans-serif;
+  line-height: 23px;
+  font-size: 16px;
+  font-weight: 100;
+  color: #333333;
+  margin: 0px;
 }
 
 .element-container {
