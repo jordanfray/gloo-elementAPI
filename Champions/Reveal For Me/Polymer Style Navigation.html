@@ -1,0 +1,147 @@
+<head>
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/jQuery_1.11.1.js"></script>
+    <link href="gloo_assets_321/gloo_assets/stylesheets/polymer.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="gloo_assets_321/gloo_assets/font-awesome/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+    .loading-screen {
+        display: none;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 2;
+        margin: 0px;
+        padding-top:45%;
+        width: 100%;
+        height: 100%;
+        background-color: #f7f5f2;
+    }
+    
+    .element {
+        display: none;
+    }
+    
+    .nav-position {
+        display: inline-block;
+    }
+</style>
+
+<body>
+    <div class="loading-screen">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+    
+    <div id="element-0" class="hide">
+        <div class="element-container">
+            Element 0
+        </div>
+    </div>
+    
+    <div id="element-1" class="hide">
+        <div class="element-container">
+            Element 1
+        </div>
+    </div>
+    
+    <div id="element-2" class="hide">
+        <div class="element-container">
+            Element 2
+        </div>
+    </div>
+    
+    <div id="element-3" class="hide">
+        <div class="element-container">
+            Element 3
+        </div>
+    </div>
+    
+    <div id="element-4" class="hide">
+        <div class="element-container">
+            Element 4
+        </div>
+    </div>
+    
+    <div id="lower-nav" class="nav"></div>
+    
+    
+    
+    <script type="text/javascript" src="gloo_assets_321/gloo_assets/javascript/helperFunctions.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            disableInternalReview()
+            var user = getUserObject();
+            var userData = elementAPI.userData();
+            
+            // Set lower Navigation
+            function navigation(nav) {
+                // Applet Title
+                $("#lower-nav").append("<div class='applet-title'>" + nav['appletTitle'] + " </div>");
+                
+                // Elements
+                for ( var i=0; i < nav['elements'].length; i++ ) {
+                    $("#lower-nav").append("<a href='gloo://app/applets/" + nav['elements'][i][1] + "'><div id='nav-" + i + "' class='nav-position'><i class='fa fa-circle-o'></i></div><div id='" + i + "' class='applet-link'>" + nav['elements'][i][0] + "</div><br></a>");
+                }
+            };
+            
+            navigation({
+                "appletTitle" : "Extending Forgiveness",
+                "elements" : [
+                    ["Meet Mark Driscoll", "element-0"],
+                    ["The Amish", "element-1"],
+                    ["Saint John Chrysostom", "element-2"],
+                    ["Corrie Ten Boom ", "element-3"],
+                    ["Reflect", "element-4"]
+                ]
+            });
+            
+            // Send the user back to the screen that they last navigated to
+            var currentElement = parseInt(elementAPI.userData().getValue('currentElement'));
+
+            if ( currentElement === undefined || currentElement === null) {
+                currentElement = 0;
+                $("#element-" + currentElement).show();
+                $("#element-" + currentElement).addClass('visible');
+            } else {
+                $(".loading-screen").show();
+                $(".element").hide();
+                
+                $(".nav-position").empty().append("<i class='fa fa-circle-o'></i>");
+                
+                $("#nav-" + currentElement).empty().append("<i class='fa fa-arrow-circle-right'></i>");
+                $("#element-" + currentElement).show();
+                
+                setTimeout(function(){
+                    $(".loading-screen").hide();
+                }, 1000);
+            }
+            
+            // On click of navigation, hide current screen, show loading screen, show selected screen, hide loading screen, & save the current page they are on
+            $('.applet-link').click(function() {
+                var id= $(this).attr('id');
+
+                $(".loading-screen").show();
+                $(".element").hide();
+                
+                $(".nav-position").empty().append("<i class='fa fa-circle-o'></i>");
+                $("#nav-" + id).empty().append("<i class='fa fa-arrow-circle-right'></i>");
+                $("#element-" + id).show();
+                $("body, html").scrollTop();
+                elementAPI.userData().setValue('currentElement',id);
+                
+                setTimeout(function(){
+                    $(".loading-screen").hide();
+                }, 1000);
+            });
+        }); 
+        
+        // For documentation on the helperFunctions, visit https://github.com/jordanfray/gloo-elementAPI/wiki/helperFunctions.js
+    </script>
+</body>
