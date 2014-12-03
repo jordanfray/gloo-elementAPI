@@ -118,3 +118,13 @@ function navigation(nav) {
         $("#lower-nav").append("<a href='gloo://app/applets/" + nav['nextApplets'][i][1] + "'><i class='fa fa-circle-o'></i><div class='applet-link'>" + nav['nextApplets'][i][0] + "</div><br></a>");
     }
 };
+
+function singleElementNavigation(nav) {
+    // Applet Title
+    $("#lower-nav").append("<div class='applet-title'>" + nav['appletTitle'] + " </div>");
+    
+    // Elements
+    for ( var i=0; i < nav['elements'].length; i++ ) {
+        $("#lower-nav").append("<a href='gloo://app/applets/" + nav['elements'][i][1] + "'><div id='nav-" + i + "' class='nav-position'><i class='fa fa-circle-o'></i></div><div id='" + i + "' class='applet-link'>" + nav['elements'][i][0] + "</div><br></a>");
+    }
+};
