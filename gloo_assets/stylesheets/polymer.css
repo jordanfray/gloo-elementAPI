@@ -572,6 +572,10 @@ body, html {
   margin-bottom: 20px;
 }
 
+.hidden {
+  display: none;
+}
+
 .section {
   margin: 15px;
   border-radius: 6px;
@@ -673,6 +677,15 @@ p {
   padding-left: 20px;
 }
 
+.author {
+  color: #888888;
+  font-size: .900em;
+  line-height:
+  font-weight: 300;
+  margin-top: 0px;
+  text-align: right;
+}
+
 .applet-title {
   font-family: 'museosans_900', sans-serif;
   font-size: 22px;
@@ -731,6 +744,74 @@ img.inline {
 a {
   text-decoration: none;
   color: #40b2cd !important;
+}
+
+/* Memoirzation Framework */
+.word-hide {
+  color: #ffffff;
+  border-bottom: 1px solid #7A7A7A;
+  transition: all .3s linear;
+}
+
+.word-show {
+  color: #444444;
+  border-bottom: 0px solid black;
+  transition: all .3s linear;
+}
+
+.memorization_nav {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.nav-item {
+  display: inline-block;
+  width: 24.9%;
+  margin-right: -5px !important;
+  margin-left: 0px !important;
+  padding: 14px 0px 14px 0px;
+  text-align: center;
+  background-color: #D9D9D9;
+  color: black;
+  font-family: 'museosans_300';
+  font-weight: 300;
+  font-size: 15px;
+  border-left: 1px solid white;
+  transition: all .1s linear;
+}
+
+.left {
+  border-top-left-radius: 6px;
+  border-left: 0px solid white;
+}
+
+.right {
+  border-top-right-radius: 6px;
+}
+
+.selected {
+  background-color: #40b2cd;
+  color: white;
+  transition: all .1s linear;
+}
+
+/* Audio Player*/
+.audio-player .fa-circle {
+  color: #40b2cd;
+}
+
+.audio-player .fa-pause, .audio-player .fa-play {
+  color: white;
+}
+
+.audio-player .fa-play {
+  margin-left: 3px;
+}
+
+.audio-player .duration {
+  display: inline-block;
+  font-family: 'museosans_500';
+  font-size: 20px;
 }
 
 /* Spinner */

@@ -35,7 +35,7 @@ function sortArrayAscending(array,column) {
 function postToSpace(postBtnClass) {
     // Check to see if the user has answered any of the questions and load their previous answers into the textareas
     var answers = JSON.parse(elementAPI.userData().getValue("answers"));
-    console.log(answers);
+    //console.log(answers);
 
     if ( answers === undefined || answers === null ) {
         answers = [];
@@ -128,3 +128,70 @@ function singleElementNavigation(nav) {
         $("#lower-nav").append("<a href='gloo://app/applets/" + nav['elements'][i][1] + "'><div id='nav-" + i + "' class='nav-position'><i class='fa fa-circle-o'></i></div><div id='" + i + "' class='applet-link'>" + nav['elements'][i][0] + "</div><br></a>");
     }
 };
+
+function memorizationFramework() {
+    $('.nav-item').click(function() {
+        var id = $(this).attr('id').split('-')[1];
+        
+        $(".nav-item").removeClass('selected');
+        $("#level-" + id).addClass('selected');
+        
+        $(".level-1, .level-2, .level-3").removeClass('word-hide');
+        
+        if ( id === "1" ) {
+            $(".level-1").addClass('word-hide');
+        } else if ( id === "2" ) {
+            $(".level-1").addClass('word-hide');
+            $(".level-2").addClass('word-hide');
+        } else if ( id === "3" ) {
+            $(".level-1").addClass('word-hide');
+            $(".level-2").addClass('word-hide');
+            $(".level-3").addClass('word-hide');
+        };
+    });
+};
+
+function audioPlayer(audioId, audioURL) {
+    $("#" + audioId).append("<span class='fa-stack fa-2x'><i class='fa fa-circle fa-stack-2x'></i><span id='play-pause' class='play'><i class='fa fa-play fa-stack-1x'></i></span></span><input type='range' id='seek' value='0' max=''/><div class='duration'>0:00</div>");
+    var song = new Audio(audioURL);
+
+    function duration() {
+        setInterval(function() {
+            var currentTime = Math.round(song.duration) - song.currentTime;
+            
+            if ( currentTime < 0 ) {
+                clearInterval();
+            } else {
+                var seconds = Math.round(currentTime%60);
+                var minutes = Math.floor(currentTime/60);
+                if ( typeof song.duration != 'number' ) {
+                    $(".duration").text("0:00");
+                } else if ( seconds < 10 ) {
+                    $(".duration").text(minutes + ":" + "0" + seconds);
+                } else {
+                    $(".duration").text(minutes + ":" + seconds);
+                }
+                $("#seek").val(song.currentTime);
+            }
+        },1000);
+    };
+
+    $("#play-pause").click(function() {
+        duration();
+        if ( $("#play-pause").hasClass('play') ) {
+            song.play();
+            $("#play-pause").empty().append('<i class="fa fa-pause fa-stack-1x"></i>');
+            $("#play-pause").removeClass('play').addClass('pause');
+        } else {
+            song.pause();
+            $("#play-pause").empty().append('<i class="fa fa-play fa-stack-1x"></i>');
+            $("#play-pause").removeClass('pause').addClass('play');
+        }
+    });
+
+    $("#seek").bind("change", function() {
+        song.currentTime = $(this).val();
+        $("#seek").attr("max", song.duration);
+        $("#seek").val(song.currentTime);
+    });
+}
