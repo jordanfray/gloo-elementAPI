@@ -55,6 +55,7 @@ function postToSpace(postBtnClass) {
         answers[id] = answer;
         elementAPI.userData().setValue("answers", JSON.stringify(answers));
         
+        //Notice difference in URL for Android and iOS
         if (navigator.userAgent.match(/Android/i)) { //Android
             var url = "gloo://app/journal?desc=" + question.replace(/ /g, "%20") + "&text=" + answer.replace(/ /g, "%20");
             document.location = url;     
