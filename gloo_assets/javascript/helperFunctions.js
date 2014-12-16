@@ -153,6 +153,34 @@ function memorizationFramework() {
     });
 };
 
+function multipleMemorization(){
+	$('.mem-anchor').on('click', function(e){
+	    e.preventDefault();
+	    var memNum = $(this).attr('mem-id-match');
+	    var activeNum = $('.mem-anchor-active').find('a').attr('mem-id-match');
+	    var currentMem = $(this);
+	
+	    if(activeNum !== memNum){
+	        $('[mem-id = ' + activeNum +']').slideUp();
+	       $('[mem-id-match = ' + activeNum + ']')
+	            .closest('div')
+	           .removeClass('mem-anchor-active')
+	           .find('i')
+	           .removeClass('fa-caret-down')
+	           .addClass('fa-caret-up');
+	       
+	        currentMem
+	            .closest('div')
+	            .addClass('mem-anchor-active')
+	            .find('i')
+	            .removeClass('fa-caret-up')
+	            .addClass('fa-caret-down');
+	            
+	        $('[mem-id = ' + memNum +']').slideDown();
+	    } 
+	});
+};
+
 function audioPlayer(audioId, audioURL) {
     $("#" + audioId).append("<span class='fa-stack fa-2x'><i class='fa fa-circle fa-stack-2x'></i><span id='play-pause' class='play'><i class='fa fa-play fa-stack-1x'></i></span></span><input type='range' id='seek' value='0' max=''/><div class='duration'>0:00</div>");
     var song = new Audio(audioURL);
