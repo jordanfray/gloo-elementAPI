@@ -1,0 +1,293 @@
+<head>
+    <script type="text/javascript" src="gloo_assets_321/gloo_style/jQuery_2.0.3.js"></script>
+    <link href="gloo_assets_321/gloo_style/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+    #set-reminder {
+        display: none;
+    }
+    
+    .timepicker {
+        display: none;
+    }
+    
+    .dropdown {
+        position: relative;
+        top:0px;
+        left: 0px;
+        z-index: 2;
+        background-color: #38b3ce;
+        color: white;
+        text-align: center;
+    }
+    
+    #instructions {
+        position: relative;
+        top: 0px;
+        z-index: 1;
+    }
+    
+    .dropdown th {
+        font-family: helvetica;
+        padding: 30px 0px 30px 0px;
+        font-size: 22px;
+        font-weight: 700;
+        text-align: center !important;
+        width: 33%;
+    }
+    
+    td {
+        display: none;
+        padding: 5px 0px 5px 0px;
+        font-family: helvetica;
+        font-size: 20px;
+        font-weight: 100;
+        text-align: center !important;
+        width: 33%;
+    }
+    
+</style>
+
+<body>
+    <div id="reminder-settings">
+        <div id="timePickerMenu">
+            <div class="full-width">
+                <table class="dropdown">
+                  <tr id="setTimeStart">
+                    <th colspan="3">Touch to Set a Time</th>
+                  </tr>
+                  <tr class="timepicker">
+                    <th id="hour">hr</th>
+                    <th id="minute">min</th>
+                    <th id="ampm">am/pm</th>
+                  </tr>
+                  <tr>
+                    <td id="hour-1" class="hour">1</td>
+                    <td id="minute-00" class="minute">00</td>
+                    <td id="ampm-am" class="ampm">am</td>
+                  </tr>
+                  <tr>
+                    <td id="hour-2" class="hour">2</td>
+                    <td id="minute-15" class="minute">15</td>
+                    <td id="ampm-pm" class="ampm">pm</td>
+                  </tr>
+                  <tr>
+                    <td id="hour-3" class="hour">3</td>
+                    <td id="minute-30" class="minute">30</td>
+                    <td class="close"></td>
+                  </tr>
+                  <tr>
+                    <td id="hour-4" class="hour">4</td>
+                    <td id="minute-45" class="minute">45</td>
+                    <td class="close"></td>
+                  </tr>
+                  <tr>
+                    <td id="hour-5" class="hour">5</td>
+                    <td class="close"></td>
+                    <td class="close"></td>
+                  </tr>
+                  <tr>
+                    <td id="hour-6" class="hour">6</td>
+                    <td class="close"></td>
+                    <td class="close"></td>
+                  </tr>
+                  <tr>
+                    <td id="hour-7" class="hour">7</td>
+                    <td class="close"></td>
+                    <td class="close"></td>
+                  </tr>
+                  <tr>
+                    <td id="hour-8" class="hour">8</td>
+                    <td class="close"></td>
+                    <td class="close"></td>
+                  </tr>
+                  <tr>
+                    <td id="hour-9" class="hour">9</td>
+                    <td class="close"></td>
+                    <td class="close"></td>
+                  </tr>
+                  <tr>
+                    <td id="hour-10" class="hour">10</td>
+                    <td class="close"></td>
+                    <td class="close"></td>
+                  </tr>
+                  <tr>
+                    <td id="hour-11" class="hour">11</td>
+                    <td class="close"></td>
+                    <td class="close"></td>
+                  </tr>
+                  <tr>
+                    <td id="hour-12" class="hour">12</td>
+                    <td class="close"></td>
+                    <td class="close"></td>
+                  </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="content-container" id="instructions">
+            <p>Set up reminders so that you will be notified with a push notification to stay the course and complete your lessons.</p>
+            
+            <div id="set-reminder" class="btn full-width align-center">Set Reminder for <span id="hourPrint"></span>:<span id="minutePrint"></span> <span id="ampmPrint"></span></div>
+        </div>
+    </div>
+    
+    <div id="showAfter">
+        <!-- This content will show after the reminder confirmation goes away. -->
+    </div>
+    <script>
+        $(document).ready(function() { // This makes sure the javascript dosen't run until the page and all of the external scripts load. 
+            $('a').hide();
+            
+            var db = elementAPI.userData();
+            var reminderHour;
+            var reminderMin; 
+            var reminderAmPm; 
+            
+            // Drop Down Menu Code
+            var timeMenuClicked = false;
+            var hourSelected = false;
+            var minuteSelected = false;
+            var ampmSelected = false;
+            
+            $("#setTimeStart, .timepicker, .close").click(function() {
+                $("#setTimeStart").hide();
+
+                if ( timeMenuClicked === false ) {
+                    $(".timepicker").show();
+                    $("td").show();
+                    $("body, html").css("background-color", "#38b3ce");
+                    $("#instructions").hide();
+                    timeMenuClicked = true;
+                    hourSelected = false;
+                    minuteSelected = false;
+                    ampmSelected = false;
+                } else {
+                    $("td").hide();
+                    $("body, html").css("background-color", "#ffffff");
+                    $("#instructions").show();
+                    timeMenuClicked = false;
+                }
+            });
+            
+            $('table td').click(function() {
+                var id = $(this).attr('id');
+                var type = id.split('-')[0];
+                var value = id.split('-')[1];
+                
+                if ( type === "hour" ) {
+                    $(".hour").css("font-weight", "100");
+                    $("#" + id).css("font-weight", "900");
+                    $("#hour").text(value);
+                    $("#hourPrint").text(value);
+                    $("#hour").css("font-weight", "900");
+                    hourSelected = true;
+                    reminderHour = value;
+                } else if ( type === "minute" ) {
+                    $(".minute").css("font-weight", "100");
+                    $("#" + id).css("font-weight", "900");
+                    $("#minute").text(value);
+                    $("#minutePrint").text(value);
+                    $("#minute").css("font-weight", "900");
+                    minuteSelected = true;
+                    reminderMin = value; 
+                } else if ( type === "ampm" ) {
+                    $(".ampm").css("font-weight", "100");
+                    $("#" + id).css("font-weight", "900");
+                    $("#ampm").text(value);
+                    $("#ampmPrint").text(value);
+                    $("#ampm").css("font-weight", "900");
+                    ampmSelected = true;
+                    reminderAmPm = value;
+                };
+
+                if( hourSelected === true && minuteSelected === true && ampmSelected === true ) {
+                    $("td").hide();
+                    $("body, html").css("background-color", "#ffffff");
+                    $("#instructions").show();
+                    $("#set-reminder").show();
+                    timeMenuClicked = false;
+                };
+            });
+            
+            // Set Reminder Code
+            var reminderDuration = 10; //Number of days the user will recieve the push notifcation
+            var reminderMessage = "It's time to take it to the Next Level.";
+            var reminderFrequency = 2; 
+            
+            $("#set-reminder").click(function() {
+                reminderHour = parseInt(reminderHour);
+                reminderMin = parseInt(reminderMin);
+                if( reminderAmPm === "pm") {
+                    reminderHour += 12;
+                }
+                
+                alert(reminderHour + "\n" + reminderMin + "\n" + reminderAmPm);
+                setReminder(reminderHour, reminderMin, reminderDuration, reminderFrequency, reminderMessage, true);
+            });
+            
+            //See Confluence wiki for details about the SetReminder.js function
+            
+            function setReminder(hr, min, duration, frequency, message, debug) {
+                var confirmation = confirm("Are you sure you want to set a reminder? Once you set it, you won't be able to undo it.");
+                var html = db.getValue("html");
+                
+                if (html === undefined || html === null) {
+                    $("body").append('<div class="alert-top" id="success-msg">Reminder set!</div><div class="alert-top" id="canceled-msg">Reminder canceled</div>');
+                    db.setValue("html", 0);
+                    alert("created"); 
+                };
+                
+                if (confirmation) {
+                    var futureDelays = 0; 
+                    
+                    if(frequency < 1) frequency = 1; 
+                    frequency = Math.round(frequency);
+                    duration = Math.round(duration); 
+                    hr = Math.round(hr); 
+                    min = Math.round(min); 
+                       
+                    var SECONDSINDAY = 86400;
+                    var now = new Date();
+                    var userDate = new Date();
+                    userDate.setHours(hr, min, 0);
+                    
+                    var delay = (userDate - now)/1000;
+                    
+                    var firstDelay = SECONDSINDAY + delay;
+                    if(debug){
+                        ourDebug(firstDelay, 0); 
+                    }
+                    elementAPI.sendMessage(message, firstDelay, true);
+                     
+                    for (var i=1; i<duration; i++) {
+                        futureDelays = firstDelay + (i*SECONDSINDAY*frequency);
+                        if(debug){
+                            ourDebug(futureDelays, i); 
+                        }
+                        elementAPI.sendMessage(message, futureDelays, true);
+                    }
+                    
+                    $("#success-msg").fadeIn(200).delay(2000).fadeOut(200);
+                    
+                    /*setTimeout(function() { //We dont think this should happen. 
+                        $("#reminder-settings").hide(0);
+                    }, 2400);*/
+                } else {
+                    $("#canceled-msg").fadeIn(200).delay(2000).fadeOut(200);
+                }
+                
+                function ourDebug(argument, num) {
+                    console.log("Reminder #" + num + ": " + argument + "secs" + " = " + Math.floor(argument/SECONDSINDAY) + "days " + Math.floor((argument%SECONDSINDAY)/3600) + "hrs " + Math.floor(((argument%SECONDSINDAY)%3600)/60) + "mins " + Math.floor(((argument%SECONDSINDAY)%3600)%60) + "secs");
+                }
+            };
+		});// End Document Ready
+        
+        $("#test").click(function() {
+            alert("Hi");
+            alert(this);
+        });
+	</script>
+
+</body>

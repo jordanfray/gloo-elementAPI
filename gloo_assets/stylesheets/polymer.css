@@ -678,6 +678,22 @@ p {
   color: #333333;
 }
 
+.btn {
+  background: #40b2cd;
+  font-family: 'museosans_900';
+  border: 0px solid #40b2cd;
+  border-radius: 4px;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
 .blockquote {
   font-family: 'museosans_300', sans-serif;
   font-style: italic;
