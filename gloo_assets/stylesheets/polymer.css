@@ -584,6 +584,16 @@ body, html {
   padding: 15px;
 }
 
+.challenge {
+  background-color: #40b2cd;
+  color: white;
+  text-align: left;
+  margin: 0 0 0 0 !important;
+  padding: 15px 25px;
+  width: auto;
+  height: auto;
+}
+
 .section-title {
   font-family: 'museosans_100';
   font-weight: 100;
@@ -657,6 +667,7 @@ h1 {
   line-height: 40px;
   font-size: 32px;
   color: #333333;
+  margin: 0px;
 }
 
 p {
@@ -793,6 +804,23 @@ a {
   background-color: #40b2cd;
   color: white;
   transition: all .1s linear;
+}
+
+.mem-anchor-active {
+  background-color: #40b2cd; 
+  padding: 5px;    
+}
+
+.mem-anchor-active a {
+  color: white !important;
+}
+
+.multiple-memorization {
+  margin-bottom: 20px;
+}
+
+.multiple-memorization div{
+  padding: 10px;   
 }
 
 /* Audio Player*/
