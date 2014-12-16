@@ -225,8 +225,6 @@ function audioPlayer(audioId, audioURL) {
         $("#seek").val(song.currentTime);
     });
 }
-<<<<<<< Updated upstream
-=======
 
 // Please be carefull this this one. 
 function joinGroup(group_id) { 
@@ -234,4 +232,3 @@ function joinGroup(group_id) {
         groupData = JSON.parse(data.response); 
     });
 };
->>>>>>> Stashed changes
