@@ -189,26 +189,27 @@ function audioPlayer(audioId, audioURL) {
     var song = new Audio(audioURL);
 
     function duration() {
-        setInterval(function() {
-            var currentTime = Math.round(song.duration) - song.currentTime;
-            
-            if(song.duration === song.currentTime) elementAPI.createAnalyticEvent("soundBiteStatus", "completed");
-
-            if ( currentTime < 0 ) {
-                clearInterval();
-            } else {
-                var seconds = Math.round(currentTime%60);
-                var minutes = Math.floor(currentTime/60);
-                if ( typeof song.duration != 'number' ) {
-                    $(".duration").text("0:00");
-                } else if ( seconds < 10 ) {
-                    $(".duration").text(minutes + ":" + "0" + seconds);
+      var checkTime =  setInterval(function() {
+                var currentTime = Math.round(song.duration) - song.currentTime;
+                
+                if(song.duration === song.currentTime) elementAPI.createAnalyticEvent("soundBiteStatus", "completed");
+    
+                if ( currentTime === -(song.duration -  Math.round(song.duration)) ) {
+                    
+                    clearInterval(checkTime);
                 } else {
-                    $(".duration").text(minutes + ":" + seconds);
+                    var seconds = Math.round(currentTime%60);
+                    var minutes = Math.floor(currentTime/60);
+                    if ( typeof song.duration != 'number' ) {
+                        $(".duration").text("0:00");
+                    } else if ( seconds < 10 ) {
+                        $(".duration").text(minutes + ":" + "0" + seconds);
+                    } else {
+                        $(".duration").text(minutes + ":" + seconds);
+                    }
+                    $("#seek").val(song.currentTime);
                 }
-                $("#seek").val(song.currentTime);
-            }
-        },1000);
+            },1000);
     };
 
     $("#play-pause").click(function() {
