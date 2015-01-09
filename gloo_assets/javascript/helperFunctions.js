@@ -32,19 +32,22 @@ function sortArrayAscending(array,column) {
 	});
 }
 
-function postToSpace(postBtnClass) {
-    // Check to see if the user has answered any of the questions and load their previous answers into the textareas
-    var answers = JSON.parse(elementAPI.userData().getValue("answers"));
-    //console.log(answers);
+function postToSpace(postBtnClass,loadPreviousText) {
+    
+    if ( loadPreviousText ) {
+        // Check to see if the user has answered any of the questions and load their previous answers into the textareas
+        var answers = JSON.parse(elementAPI.userData().getValue("answers"));
+        //console.log(answers);
 
-    if ( answers === undefined || answers === null ) {
-        answers = [];
-    } else {
-        for ( var i=0; i<answers.length; i++ ) {
-            $("#textarea-" + i).text(answers[i]);
+        if ( answers === undefined || answers === null ) {
+            answers = [];
+        } else {
+            for ( var i=0; i<answers.length; i++ ) {
+                $("#textarea-" + i).text(answers[i]);
+            }
         }
-    }
-        
+    };
+
     // Save the users answer to the "answers" array and post the text to the selected space
     $(postBtnClass).click(function() {
         var id= $(this).attr('id').split('-')[1];
@@ -189,6 +192,8 @@ function audioPlayer(audioId, audioURL) {
         setInterval(function() {
             var currentTime = Math.round(song.duration) - song.currentTime;
             
+            if(song.duration === song.currentTime) elementAPI.createAnalyticEvent("soundBiteStatus", "completed");
+
             if ( currentTime < 0 ) {
                 clearInterval();
             } else {
@@ -210,6 +215,7 @@ function audioPlayer(audioId, audioURL) {
         duration();
         if ( $("#play-pause").hasClass('play') ) {
             song.play();
+            elementAPI.createAnalyticEvent("soundBiteStatus", "started");
             $("#play-pause").empty().append('<i class="fa fa-pause fa-stack-1x"></i>');
             $("#play-pause").removeClass('play').addClass('pause');
         } else {

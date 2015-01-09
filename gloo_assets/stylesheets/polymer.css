@@ -572,6 +572,14 @@ body, html {
   margin-bottom: 20px;
 }
 
+.header h2 {
+  font-family: 'museosans_100';
+  font-weight: 100;
+  line-height: normal;
+  font-size: 26px;
+  color: #333333;
+  margin: 0 0 0 20px;
+}
 .hidden {
   display: none;
 }
@@ -688,6 +696,32 @@ p {
   text-decoration: none;
   padding: 12px 20px;
   text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.question {
+  font-family: 'museosans_700';
+  color: #717171;
+  font-size: 1.100em;
+  margin-bottom: 10px;
+}
+
+textarea {
+  margin-top: 0px;
+  margin-bottom: 24px;
+  background-color: #F1F1F1;
+  border-radius: 0px;
+  border: 0px solid white;
+  text-align: left;
+  font-family: helvetica;
+  font-weight: 100;
+  width: 99%;
+}
+
+a.btn {
+  color: white !important;
+  text-align: center;
+  text-decoration: none;
 }
 
 .full-width {
@@ -727,6 +761,7 @@ p {
 
 img.inline {
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .fa-arrow-circle-right {
@@ -856,6 +891,75 @@ a {
   display: inline-block;
   font-family: 'museosans_500';
   font-size: 20px;
+}
+
+/* Redminder Popup */
+.modal {
+  display: none;
+  position: relative;
+  top: inherit;
+  bottom: inherit;
+  right: inherit;
+  left: inherit;
+  margin: inherit;
+  background-color: inherit;
+}
+.lightbox {
+  position: relative;
+  top: 30px;
+  bottom: 30px;
+  right: 30px;
+  left: 30px;
+  margin: auto;
+  background-color: white;
+  border: 2px solid black;
+  overflow: scroll;
+}
+#set-reminder {
+  display: none;
+}
+#setAlert {
+  transition: 2s;   
+}
+
+.timepicker {
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+  top:0px;
+  left: 0px;
+  z-index: 2;
+  background-color: #38b3ce;
+  color: white;
+  text-align: center;
+  overflow: scroll;
+}
+
+#instructions {
+  position: relative;
+  top: 0px;
+  z-index: 1;
+}
+
+.dropdown th {
+  font-family: helvetica;
+  padding: 30px 0px 30px 0px;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center !important;
+  width: 33%;
+}
+
+.dropdown td {
+  display: none;
+  padding: 5px 0px 5px 0px;
+  font-family: helvetica;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center !important;
+  width: 33%;
 }
 
 /* Spinner */
