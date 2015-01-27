@@ -1,8 +1,7 @@
-          //time picker script
-   var setMeditationAlert = function(){ 
+var setMeditationAlert = function(){ 
         var user = getUserObject();
         var userData = elementAPI.userData();
-        var alertInstructions = 'It can be hard to remember these kinds of things. Click the button below to set up reminders for yourself.';
+        var alertInstructions = "Consistency is key. Click the button below to set up your daily reminder for prayer and meditation on God's word.";
         // append timepicker HTML to DOM
         $('#setAlert').append('<p><span id="alertInstructions" style="display: none">' + alertInstructions + '</span></p><button id="setAlertBtn" class="btn full-width" style="display: none"><i class="fa fa-table"></i>&nbsp <span id="btnText">Click Here to Set a Reminder</span></button><div class="modal"> <div class="align-center"> <h3>Set a Reminder</h3> <div id="reminder-settings"> <div id="timePickerMenu"> <div class="full-width"> <table class="dropdown"> <tr id="setTimeStart"> <th colspan="3">Touch to Set a Time</th> </tr><tr class="timepicker"> <th id="hour">hr</th> <th id="minute">min</th> <th id="ampm">am/pm</th> </tr><tr> <td id="hour-1" class="hour">1</td><td id="minute-00" class="minute">00</td><td id="ampm-am" class="ampm">am</td></tr><tr> <td id="hour-2" class="hour">2</td><td id="minute-15" class="minute">15</td><td id="ampm-pm" class="ampm">pm</td></tr><tr> <td id="hour-3" class="hour">3</td><td id="minute-30" class="minute">30</td><td class="close"></td></tr><tr> <td id="hour-4" class="hour">4</td><td id="minute-45" class="minute">45</td><td class="close"></td></tr><tr> <td id="hour-5" class="hour">5</td><td class="close"></td><td class="close"></td></tr><tr> <td id="hour-6" class="hour">6</td><td class="close"></td><td class="close"></td></tr><tr> <td id="hour-7" class="hour">7</td><td class="close"></td><td class="close"></td></tr><tr> <td id="hour-8" class="hour">8</td><td class="close"></td><td class="close"></td></tr><tr> <td id="hour-9" class="hour">9</td><td class="close"></td><td class="close"></td></tr><tr> <td id="hour-10" class="hour">10</td><td class="close"></td><td class="close"></td></tr><tr> <td id="hour-11" class="hour">11</td><td class="close"></td><td class="close"></td></tr><tr> <td id="hour-12" class="hour">12</td><td class="close"></td><td class="close"></td></tr></table> </div></div><div class="content-container" id="instructions"> <p>Set up reminders so that you will be notified with a push notification to stay the course and complete your lessons.</p><div id="set-reminder"><button class="btn full-width align-center">Set Reminder for <span id="hourPrint"></span>:<span id="minutePrint"></span> <span id="ampmPrint"></span></button></div><div><input type="button" id="modalClose" class="btn" value="No Thanks"> <input type="checkbox" id="optOut"><small>Don\'t Remind me Again</small></div></div></div><div id="showAfter"> </div></div>');
 
@@ -133,7 +132,7 @@
            
            // Set Reminder Code
            var reminderDuration; //Number of days the user will recieve the push notifcation
-           var reminderMessage = "It's time for your daily meditation.";
+           var reminderMessage = "It's time for spiritual growth.";
            var reminderFrequency = 1;
            
            //  months categorized by days in each         
@@ -186,7 +185,8 @@
                setReminder(reminderHour, reminderMin, reminderDuration, reminderFrequency, reminderMessage, true);
                
                elementAPI.userData().setValue('showDateModal', false);
-               $('.modal').hide();
+//               $('.modal').hide();
+                $('#setAlert').addClass('hidden');
            });
            
            //See Confluence wiki for details about the SetReminder.js function
@@ -196,12 +196,15 @@
                var html = db.getValue("html");
                
                if (html === undefined || html === null) {
-                   $("body").append('<div class="alert-top" id="success-msg">Reminder set!</div><div class="alert-top" id="canceled-msg">Reminder canceled</div>');
+//                   $("body").append('<div class="alert-top" id="success-msg">Reminder set!</div><div class="alert-top" id="canceled-msg">Reminder canceled</div>');
                    db.setValue("html", 0);
-                   alert("created"); 
+                   
+//                    $('.modal').hide();
+                    $('#setAlert').addClass('hidden');
                };
                
                if (confirmation) {
+                   elementAPI.userData().setValue('showDateModal', false);
                    var futureDelays = 0; 
                    
                    if(frequency < 1) frequency = 1; 
@@ -231,13 +234,15 @@
                        elementAPI.sendMessage(message, futureDelays, true);
                    }
                    
-                   $("#success-msg").fadeIn(200).delay(2000).fadeOut(200);
+                   alert("Reminder has been created"); 
+                   // $("#success-msg").fadeIn(200).delay(2000).fadeOut(200);
                    
                    /*setTimeout(function() { //We dont think this should happen. 
                        $("#reminder-settings").hide(0);
                    }, 2400);*/
                } else {
-                   $("#canceled-msg").fadeIn(200).delay(2000).fadeOut(200);
+                  alert('Reminder has been cancelled.')
+                   // $("#canceled-msg").fadeIn(200).delay(2000).fadeOut(200);
                }
                
                function ourDebug(argument, num) {
