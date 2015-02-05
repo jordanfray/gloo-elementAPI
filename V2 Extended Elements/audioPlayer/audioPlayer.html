@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  </head>
+  <style type="text/css">
+
+/*
+      .audio-player .fa-circle {
+          color: #40b2cd !important;
+        }*/
+
+        .audio-player .fa-pause, .audio-player .fa-play {
+          color: #FCF8E3 !important;
+        }
+
+        .audio-player .fa-play {
+          margin-left: 3px;
+        }
+
+        .audio-player .duration {
+          display: inline-block;
+          font-family: 'museosans_500';
+          font-size: 20px;
+        }
+        #seek, .duration {
+          margin-top: 8%;
+        } 
+        .duration {
+          margin-top: 3%;
+        }
+
+  </style>
+  <body>
+  <div class="container">
+        <h1 class='col-md-offset-4'>Audio Module</h1>
+        <div class="row">
+          <div class="col-md-3 col-md-offset-1">
+
+          <form id='memForm'>
+              <div class="formContainer alert alert-info">
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input class="form-control" id="title" placeholder="i.e. Meditate">
+                </div>
+
+                 <div class="form-group">
+                  <label for="author">Author</label>
+                  <input class="form-control" id="author" placeholder="NIV">
+                </div>
+
+                <div class="form-group">
+                  <label for="url">URL</label>
+                   <input class="form-control" id="url" placeholder="http://www..." type='url' required=true>
+                </div>
+                <button type="submit" id='createOutput' class="btn btn-default">Submit</button>
+          </div>
+                
+          </form>
+          </div>
+
+          <div class='col-md-4'>
+              <pre>
+                  {
+                  title: "<span id='titleSpan'></span>",
+                  author: "<span id='authorSpan'>null</span>",
+                  url: "<span id='urlSpan'></span>"
+                  }
+              </pre>
+          </div>
+
+      <div class="col-md-4 alert alert-warning">
+          <div id='audioPlayer' class='audio-player'>
+                  <!-- <i class="fa fa-music pull-right"></i>
+                  <h1 class="reference"></h1>
+                  <h4 class='author'></h4> -->
+       
+          </div>
+
+    </div>
+
+  </div>
+          
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+            <script src="audioPlayer.js"></script>
+            <script>
+            $(document).on('ready', function(){
+                
+
+            })
+            
+            </script>
+
+  </body>
+</html>

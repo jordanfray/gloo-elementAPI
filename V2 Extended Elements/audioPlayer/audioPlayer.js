@@ -1,7 +1,14 @@
-function audioPlayer(audioId, audioURL) {
-    $("#" + audioId).append("<span class='fa-stack fa-2x'><i class='fa fa-circle fa-stack-2x'></i><span id='play-pause' class='play'><i class='fa fa-play fa-stack-1x'></i></span></span><input type='range' id='seek' value='0' max=''/><div class='duration'>0:00</div>");
-    var song = new Audio(audioURL);
+var title, author, url;
 
+function audioPlayer(audioURL, audioTitle, audioAuthor) {
+    $("#audioPlayer").append("<div class='row'><div class='col-md-2'><span class='fa-stack fa-2x'><i class='fa fa-circle fa-stack-2x'></i><span id='play-pause' class='play'><i class='fa fa-play fa-stack-1x'></i></span></span></div><div class='col-md-8'><input type='range' id='seek' value='0' max=''/></div><div class='duration col-md-2'>0:00</div></div>");
+    var song = new Audio(audioURL);
+    if(audioAuthor){
+        $('#audioPlayer').prepend('<h5>' + audioAuthor + '</h5>');
+    } 
+    if(audioTitle){
+        $('#audioPlayer').prepend('<h3>' + audioTitle + '</h3>');
+    }
     function duration() {
       var checkTime =  setInterval(function() {
                 var currentTime = Math.round(song.duration) - song.currentTime;
@@ -43,3 +50,31 @@ function audioPlayer(audioId, audioURL) {
         $("#seek").val(song.currentTime);
     });
 };
+
+$(document).on('ready', function(){
+    $('#title').on('change', function(){
+        $('#titleSpan').text($(this).val());
+        title = $(this).val();
+    });
+    $('#author').on('change', function(){
+        $('#authorSpan').text($(this).val());
+         author = $(this).val();
+    });
+    $('#url').on('change', function(){
+        // $('#urlSpan').text($(this).val());
+        $('#urlSpan').text('Final Masquerade Remix.mp3');
+        url = 'Final Masquerade Remix.mp3';
+    });
+    
+    $('#memForm').on('submit', function(e){
+        e.preventDefault();
+        $('.reference').text('');
+        $('.author').text('');
+        $('#audioPlayer').empty();
+        audioPlayer(url, title, author);
+
+    })
+
+
+
+});
