@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Question Module</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  </head>
+  <style type="text/css">
+
+
+  </style>
+  <body>
+  <!-- all bootstrap elements should be within ".container" div -->
+  <div class="container">
+        <h1 class='col-md-offset-4'>Question Module</h1>
+        <div class="btn-group col-md-offset-4" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" value='admin' checked> Admin Mode (Default)
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" id="option2" value='teacher' autocomplete="off"> Teacher Mode
+          </label>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-md-offset-1">
+  <!-- enter new fields within moduleForm -->
+          <form id='moduleForm'>
+              <div class="formContainer alert alert-info">
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input class="form-control" id="title" placeholder="The Cat in the Hat">
+                </div>
+
+                 <div class="form-group">
+                  <label for="author">Author</label>
+                  <input class="form-control" id="author" placeholder="Dr. Suess">
+                </div>
+                <div class="question-forms"></div>
+                <button id='newQuestion' class='btn btn-info'>Add New Question</button>
+                <button type="submit" id='createOutput' class="btn btn-default">Submit</button>
+          </div>
+                
+          </form>
+          </div>
+<!-- use bootstrap code styling to show JSON object input -->
+          <div class='col-md-4'>
+          <!-- any html characters in this section must be escaped to show as code -->
+              <pre>
+                  {
+                  title: "<span id='titleSpan'></span>",
+                  author: "<span id='authorSpan'>null</span>",
+                  questions: "[<div id='questionSpan'></div>]"
+                  }
+              </pre>
+          </div>
+
+
+<!-- "warning styling" for showing module output-->
+      <div class="col-md-4 alert alert-warning">
+          <div id='moduleOutput'>
+            <!-- optional font-awesome icon -->
+                  <i class="fa fa-question pull-right"></i>
+                  <h1 class="title"></h1>
+                  <h4 class='author'></h4>
+                  <div class="questionBox"></div>
+                  <!-- <div class="questionContainer">
+                    <h4 class="questionHeader">Question</h4>
+                    <textarea class="form-control"></textarea>
+                    <h5>Tags</h5>
+                    <div class="tagContainer alert alert-success"></div>
+                  </div> -->
+       
+          </div>
+
+    </div>
+
+  </div>
+          
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+            <!-- make sure main js file matches name below -->
+            <script src="questionModule.js"></script>
+
+  </body>
+</html>
